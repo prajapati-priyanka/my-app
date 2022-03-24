@@ -1,9 +1,11 @@
-import React from "react";
+import {Nav} from "../components/Navbar/Nav.jsx";
 
 
 const Home = () =>{
     return (
-        <div></div>
+        <div>
+            <Nav />
+        </div>
     )
 }
 
