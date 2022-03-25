@@ -6,7 +6,7 @@ const WishlistCard = (props) =>{
     return (
         <div className="card vertical-card card-shadow">
                 <figure className="card-header">
-                    <img src={image} alt="" />
+                    <img src={image} alt={subtitle} />
                 </figure>
                 <button className="card-floating-icon">
                     <MdFavorite title = "Added to Wishlist"/>

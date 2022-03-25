@@ -15,7 +15,7 @@ const HorizontalCard = (props) => {
   return (
     <div className="card card-horizontal card-shadow">
       <figure className="card-header">
-        <img src={image} className="card-img" alt="" />
+        <img src={image} className="card-img" alt={subtitle} />
       </figure>
 
       <section className="card-body">

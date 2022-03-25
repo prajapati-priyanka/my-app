@@ -2,18 +2,17 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import "./ProductCard.css";
 
 
-const Card = (props) =>{
+const ProductCard = (props) =>{
     
     const {title, subtitle,image, price} = props
     return (
         
             <div className="card vertical-card card-shadow">
                 <figure className="card-header">
-                    <img src={image} alt="" />
+                    <img src={image} alt={subtitle} />
                 </figure>
                 <button className="card-floating-icon">
                    <MdOutlineFavoriteBorder title="Add to Wishlist"/>
-                    
                 </button>
                 <section className="card-body">
                     <h5 className="card-title md-text">{title}</h5>
@@ -29,4 +28,4 @@ const Card = (props) =>{
     )
 }
 
-export {Card}
+export {ProductCard}
