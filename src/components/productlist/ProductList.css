@@ -1,3 +1,11 @@
+.product-display-qty {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+}
+
+
 .product-display-heading {
     display: flex;
   }
@@ -10,24 +18,4 @@
     padding: 0.8rem 0 0.8rem 3rem;
   }
   
-  .product-display-container {
-    padding: 0.8rem;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
-  }
   
-  .card {
-    margin: 0;
-  }
-  
-  .card .card-body .card-subtitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .card-floating-icon i {
-    color: var(--lynx-gray-color);
-    font-size: 1.6rem;
-  }
