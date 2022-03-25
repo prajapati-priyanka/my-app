@@ -1,6 +1,4 @@
-import {Nav} from "../../components/navbar/Nav.jsx";
-import { HorizontalCard } from "../../components/horizontal-card/HorizontalCard.jsx";
-import {Footer} from "../../components/footer/Footer.jsx";
+import {Nav, HorizontalCard,Footer} from "../../components";
 import "./Cart.css";
 import "../wishlist/Wishlist.css"
 

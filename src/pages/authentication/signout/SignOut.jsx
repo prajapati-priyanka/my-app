@@ -1,4 +1,4 @@
-import { Nav } from "../../../components/navbar/Nav";
+import { Nav } from "../../../components";
 import {FaCheck } from "react-icons/fa";
 import "../login/Login.css";
 import "./SignOut.css"

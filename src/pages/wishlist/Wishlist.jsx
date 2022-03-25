@@ -1,6 +1,4 @@
-import {Nav} from "../../components/navbar/Nav.jsx";
-import {WishlistCard} from "../../components/wishlist-card/WishlistCard.jsx";
-import {Footer} from "../../components/footer/Footer.jsx";
+import {Nav, WishlistCard,Footer} from "../../components";
 import "./Wishlist.css"
 
 const Wishlist = () => {

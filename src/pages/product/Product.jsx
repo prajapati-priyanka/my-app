@@ -1,7 +1,4 @@
-import {Nav} from "../../components/navbar/Nav.jsx";
-import {Filter} from "../../components/filter/Filter.jsx";
-import { ProductList } from "../../components/productlist/ProductList.jsx";
-import {Footer} from "../../components/footer/Footer.jsx";
+import {Nav,Filter, ProductList,Footer} from "../../components";
 import "./Product.css";
 
 const Product = () =>{

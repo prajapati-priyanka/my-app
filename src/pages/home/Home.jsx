@@ -1,8 +1,5 @@
-import {Nav} from "../../components/navbar/Nav.jsx";
-import {Categories} from "../../components/categories/Categories.jsx";
-import {Footer} from "../../components/footer/Footer.jsx";
+import {Nav, Categories,Footer} from "../../components";
 import "./Home.css";
-
 
 const Home = () =>{
     return (

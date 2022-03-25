@@ -1,5 +1,5 @@
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { Nav } from "../../../components/navbar/Nav.jsx";
+import { Nav } from "../../../components";
 import "./Login.css";
 
 const Login = () => {

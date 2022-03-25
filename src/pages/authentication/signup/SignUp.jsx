@@ -1,4 +1,4 @@
-import { Nav } from "../../../components/navbar/Nav.jsx";
+import { Nav } from "../../../components";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoIosEyeOff } from "react-icons/io";
 import "../login/Login.css";
