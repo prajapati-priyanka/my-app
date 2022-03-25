@@ -17,5 +17,12 @@
   .product-display-text {
     padding: 0.8rem 0 0.8rem 3rem;
   }
+
+  .product-display-container {
+    padding: 0.8rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+   }
   
   
