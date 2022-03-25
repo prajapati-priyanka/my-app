@@ -1,10 +1,12 @@
 // import {Home} from "./pages/home/Home.jsx";
-import {Product} from "./pages/product/Product.jsx";
+// import {Product} from "./pages/product/Product.jsx";
+import { Wishlist } from "./pages/wishlist/Wishlist.jsx";
 function App() {
   return (
     <div className="App">
      {/* <Home /> */}
-     <Product />
+     {/* <Product /> */}
+     <Wishlist />
     </div>
   );
 }
