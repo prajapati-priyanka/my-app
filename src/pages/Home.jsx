@@ -1,5 +1,6 @@
 import {Nav} from "../components/Navbar/Nav.jsx";
-import {Categories} from "../components/categories/Categories.jsx"
+import {Categories} from "../components/categories/Categories.jsx";
+import {Footer} from "../components/footer/Footer.jsx";
 import "./Home.css";
 
 
@@ -17,6 +18,7 @@ const Home = () =>{
                 </div>
             </section>
             <Categories />
+            <Footer />
         </div>
     )
 }
