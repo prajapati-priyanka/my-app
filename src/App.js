@@ -2,7 +2,10 @@
 // import {Product} from "./pages/product/Product.jsx";
 // import { Wishlist } from "./pages/wishlist/Wishlist.jsx";
 // import { Cart } from "./pages/cart/Cart.jsx";
-import { Login } from "./pages/authentication/login/Login.jsx";
+// import { Login } from "./pages/authentication/login/Login.jsx";
+import { SignUp } from "./pages/authentication/signup/SignUp";
+
+// import { SignUp } from "./pages/authentication/signup/SignUp.jsx";
 function App() {
   return (
     <div className="App">
@@ -10,7 +13,8 @@ function App() {
      {/* <Product /> */}
      {/* <Wishlist /> */}
      {/* <Cart /> */}
-     <Login />
+     {/* <Login /> */}
+     <SignUp />
     </div>
   );
 }
