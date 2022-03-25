@@ -5,7 +5,7 @@ const Filter = () => {
         <aside className="product-filter-container">
             <div className="product-filter-clear">
                 <h3 className="product-filter-heading lg-text">Filters</h3>
-                {/* <a href="" className="reset md-text">Clear</a> */}
+                 <button className="reset md-text">Clear</button> 
             </div>
             <div className="filter-type">
                 <h3 className="filter-type-heading lg-text">Price</h3>
