@@ -9,7 +9,6 @@
     top: 0;
     padding: 1rem;
     overflow-y: scroll;
-    
   }
   
   .product-filter-clear {
@@ -21,6 +20,9 @@
   .reset {
     text-decoration: underline;
     padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
   
   .filter-type {
@@ -50,4 +52,3 @@
     margin-top: 0.3rem;
     margin-left: 0.6rem;
   }
-  
