@@ -1,0 +1,44 @@
+.page-title {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .wishlist-container {
+    width: 80%;
+    margin: 3rem auto;
+    display: grid;
+   grid-gap:1rem;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+
+  }
+
+  @media only screen and (max-width: 540px) {
+    .wishlist-container {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+  
+    .vertical-card {
+      width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 460px) {
+    .page-title {
+      margin: 5rem 0;
+    }
+  }
+  
+  @media only screen and (max-width: 415px) {
+    .vertical-card {
+      width: 100%;
+    }
+  }
+
+  .card-floating-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--red);
+    background-color: var(--lynx-white-color);
+    
+  }
+  
