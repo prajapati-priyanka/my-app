@@ -12,7 +12,7 @@ const Cart = ()=>{
         <h3 className="page-title text-center lg-text">My Cart(2)</h3>
         <div className="cart-bill-container ">
             <div className="cart-container">
-              <HorizontalCard image = {"../assets/cart/cart-1.jpg"} 
+              <HorizontalCard image = {"/assets/cart/cart-1.jpg"} 
                              title ={"JUNEBERRY"}
                              subtitle={"Casual Regular Sleeves Striped Women Blue Top"}
                              priceAfterDiscount = {"₹299"}
@@ -20,7 +20,7 @@ const Cart = ()=>{
                              discount ={("75% off")}
 
               />
-              <HorizontalCard image = {"../assets/cart/cart-2.jpg"} 
+              <HorizontalCard image = {"/assets/cart/cart-2.jpg"} 
                              title ={"DRESSBERRY"}
                              subtitle={" Cotton Multi Color T-Shirts"}
                              priceAfterDiscount = {"₹329"}
