@@ -1,48 +1,41 @@
 .card-horizontal {
-    max-width: 100%;
-  
-    margin: 0;
-  }
-  .card-horizontal .card-header {
-    height: 22rem;
-  }
-  .card-horizontal .card-header .card-img {
-    height: 100%;
-  }
-  
-  .card-horizontal .card-quantity {
-    display: flex;
-    gap: 0.2rem;
-  }
-  .card-quantity .product-quantity {
-    padding-right: 0.5rem;
-  }
-  .card-quantity button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-  .card-quantity input {
-    width: 10%;
-    height: 2rem;
-    border: 1px solid var(--lynx-gray-color);
-    margin: 0 0.2rem;
-    min-width: 15%;
-  }
-  .card-horizontal .card-body .card-btn button {
-    width: 70%;
-  }
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+}
+.card-horizontal .card-header {
+  height: 22rem;
+}
+.card-horizontal .card-header .card-img {
+  height: 100%;
+}
 
-  @media only screen and (max-width: 850px) {
-    .card-horizontal {
-      width: 100%;
-    }
-    
+.card-horizontal .card-quantity {
+  display: flex;
+  gap: 0.2rem;
+}
+.card-quantity .product-quantity {
+  padding-right: 0.5rem;
+}
+.card-quantity button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.card-quantity input {
+  width: 10%;
+  height: 2rem;
+  border: 1px solid var(--lynx-gray-color);
+  margin: 0 0.2rem;
+  min-width: 15%;
+}
+.card-horizontal .card-body .card-btn button {
+  width: 70%;
+}
+
+@media only screen and (max-width: 460px) {
+  .card-quantity input {
+    min-width: 25%;
   }
-  
-  @media only screen and (max-width: 460px) {
-    .card-quantity input {
-      min-width: 25%;
-    }
-  }
+}
