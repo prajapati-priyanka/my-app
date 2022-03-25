@@ -4,7 +4,7 @@ import "./ProductCard.css";
 
 const Card = (props) =>{
     
-    const {title, subtitle,image, price, btnText} = props
+    const {title, subtitle,image, price} = props
     return (
         
             <div className="card vertical-card card-shadow">
@@ -22,7 +22,7 @@ const Card = (props) =>{
                         <span className="price-after-discount md-text">{price}</span>
 
                     </div>
-                    <button className="btn btn-primary">{btnText}</button>
+                    <button className="btn btn-primary">ADD TO CART</button>
                 </section>
             </div>
       
