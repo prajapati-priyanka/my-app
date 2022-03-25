@@ -1,6 +1,5 @@
 import {Home, Product, Wishlist, Cart, Login, SignUp, SignOut} from "./pages"
 
-
 function App() {
   return (
     <div className="App">
