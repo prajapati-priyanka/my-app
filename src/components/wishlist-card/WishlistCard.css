@@ -1,0 +1,26 @@
+.card {
+    margin: 0;
+  }
+  .card-floating-icon {
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--red);
+    background-color: var(--lynx-white-color);
+    
+  } 
+
+  @media only screen and (max-width: 540px) {
+   
+    .vertical-card {
+      width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 415px) {
+    .vertical-card {
+      width: 100%;
+    }
+  }
+
+ 
+

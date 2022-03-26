@@ -1,0 +1,35 @@
+.product-category {
+    width: 80%;
+    margin: 5rem auto;
+  }
+  
+  .product-category .category-heading {
+    padding: 0.8rem;
+  }
+  
+  .category-display {
+    margin: 3rem 0;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+  
+  .card-with-text-overlay {
+    opacity: 1;
+  }
+  .card {
+    margin: 0;
+    width: 18rem;
+  }
+  
+  .text-overlay {
+    top: 8rem;
+    background-color: rgba(253, 231, 231, 0.65);
+    bottom: 9rem;
+  }
+  
+  .card-with-text-overlay img {
+    height: 20rem;
+    border: none;
+    border-radius: none;
+  }

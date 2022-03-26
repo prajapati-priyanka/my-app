@@ -1,0 +1,74 @@
+.cart-bill-container {
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .cart-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 60%;
+  }
+  
+  .bill-container {
+    width: 40%;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .bill-card {
+    padding: 1.2rem;
+  }
+  
+  .bill-card .card-title {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--lynx-gray-color);
+  }
+  
+  .bill-card .items-container {
+    padding: 0.8rem 0;
+    font-size: 1rem;
+  }
+  .bill-card .items-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+  }
+  
+  .bill-card .total-price-container {
+    text-transform: uppercase;
+    border-top: 1px solid var(--lynx-gray-color);
+    border-bottom: 1px solid var(--lynx-gray-color);
+    font-weight: var(--semibold-font);
+    padding: 0.8rem 0;
+  }
+  
+  .bill-card .total-saving-container {
+    padding: 1rem 0;
+  }
+  
+ 
+  
+  .bill-container button {
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 850px) {
+    .cart-bill-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .cart-container {
+      width: 100%;
+    }
+   
+    .bill-container {
+      width: 100%;
+      margin: auto;
+    }
+  }
+ 

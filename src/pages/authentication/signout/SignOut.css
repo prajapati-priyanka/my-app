@@ -1,0 +1,22 @@
+.form-signout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-signout a{
+    color: var(--primary-color);
+}
+
+.form-signout a:hover{
+    text-decoration: underline;
+}
+.form-signout .check-btn{
+    color: var(--white-color);
+    background-color: var(--green);
+    border-radius: 50%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.8rem;
+}
