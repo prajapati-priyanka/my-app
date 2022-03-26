@@ -3,6 +3,7 @@ import "./Nav.css";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 const Nav = ()=>{
@@ -10,10 +11,10 @@ const Nav = ()=>{
         <header className="header">
         
             <div className="logo-container">
-                <a href="../index.html">
+                <Link to="/">
                     <img src="/assets/logo.png" alt="logo" />
                     <span className="logo-name lg-text">Pine Apparel</span>
-                </a>
+                </Link>
             </div>
        
             <form className="search-container">
@@ -26,23 +27,23 @@ const Nav = ()=>{
             <div className="header-links">
                 <ul>
                     <li>
-                        <a href="/authentication/login/login.html"><button className="btn btn-primary md-text">Login</button></a>
+                        <Link to="/login"><button className="btn btn-primary md-text">Login</button></Link>
                     </li>
                     <li>
-                        <a href="/wishlist/wishlist.html">
+                        <Link to="/wishlist">
                             <div className="icon badge">
                                 <MdOutlineFavoriteBorder />
                                 <span className="badge-count">8</span>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/cart/cart.html">
+                        <Link to="/cart">
                             <div className="icon badge">
                                 <BsCart />
                                 <span className="badge-count">8</span>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>

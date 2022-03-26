@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {Nav, Categories,Footer} from "../../components";
 import "./Home.css";
 
@@ -9,9 +10,9 @@ const Home = () =>{
                 <img src="/assets/hero-image.jpg" alt="" />
                 <div className="banner-text-overlay">
                     <h2 className="text-center">"The joy of dressing is an art." ~ John Galliano</h2>
-                    <a href="/productListing/product.html">
-                        <button className="btn btn-primary lg-text">Shop Now</button>
-                    </a>
+                    <Link to ="/product">
+                        <button className="btn btn-primary lg-text">SHOP NOW</button>
+                    </Link>
                 </div>
             </section>
             <Categories />

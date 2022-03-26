@@ -1,4 +1,5 @@
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { Nav } from "../../../components";
 import "./Login.css";
 
@@ -21,14 +22,14 @@ const Login = () => {
             <div className="user-control">
               <input type="checkbox" className="input-check" />
               <label>Remember Me ?</label>
-              <a className="forgot-pass">Forgot your Password </a>
+              <Link to="/login" className="forgot-pass">Forgot your Password </Link>
             </div>
             <button className="btn btn-primary md-text">LOGIN</button>
             <p className="new-account text-center">
-              <a href="/authentication/signup/signup.html">
+              <Link to="/signup">
                 Create New Account
                 <MdOutlineArrowForwardIos className="forward-icon" />
-              </a>
+              </Link>
             </p>
           </form>
         </div>

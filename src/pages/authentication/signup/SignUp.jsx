@@ -3,6 +3,7 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoIosEyeOff } from "react-icons/io";
 import "../login/Login.css";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -45,10 +46,10 @@ const SignUp = () => {
               CREATE NEW ACCOUNT
             </button>
             <p className="new-account text-center">
-              <a href="/authentication/signup/signup.html">
+              <Link to="/login">
                 Already have an account
                 <MdOutlineArrowForwardIos className="forward-icon" />
-              </a>
+              </Link>
             </p>
           </form>
         </div>
