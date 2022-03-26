@@ -1,15 +1,20 @@
-import {Home, Product, Wishlist, Cart, Login, SignUp, SignOut} from "./pages"
+import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-     <Home />
-     <Product />
-     <Wishlist />
-     <Cart />
-     <Login />
-     <SignUp />
-     <SignOut />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="product" element={<Product />} />
+          <Route path="wishlist" element={<Wishlist />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signout" element={<SignOut />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
