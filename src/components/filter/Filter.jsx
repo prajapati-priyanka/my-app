@@ -33,13 +33,13 @@ const categoryClickHandler = (event) =>{
                     <label htmlFor="myRange" className="md-text">price slider</label>
                     <input 
                     type="range" 
-                    min="600" 
-                    max="3000" 
+                    min="300" 
+                    max="5500" 
                     value={state.price} 
                     className="slider" 
                     id="myRange"  
                     list="marks"
-                    step="400" 
+                    step="1000" 
                     onChange={(e)=>dispatch({type:"PRICE_SLIDER", payload: e.target.value})}/>
                     <dataList id="marks"
                    className="datalist-options"
@@ -49,12 +49,12 @@ const categoryClickHandler = (event) =>{
                          fontSize: "1rem"
                         }}
                     >
-                    <option value="600" label="600"></option>
-                    <option value="1000" label="1000"></option>
-                    <option value="1400" label="1400"></option>
-                    <option value="1800" label="1800"></option>
-                    <option value="2200" label="2200"></option>
-                    <option value="2600" label="2600"></option>
+                    <option value="300" label="300"></option>
+                    <option value="1300" label="1300"></option>
+                    <option value="2300" label="2300"></option>
+                    <option value="4300" label="4300"></option>
+                    <option value="5300" label="5300"></option>
+                  
                 </dataList>
                 </div>
             </div>
