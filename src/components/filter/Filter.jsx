@@ -28,6 +28,9 @@ const Filter = () => {
           Clear
         </button>
       </div>
+
+            {/* *************Price-range-filter*************** */}
+
       <div className="filter-type">
         <h3 className="filter-type-heading lg-text">Price</h3>
         <div className="filter-type-container price-filter">
@@ -56,6 +59,8 @@ const Filter = () => {
           </dataList>
         </div>
       </div>
+
+                {/* *************category-filter********** */}
 
       <div className="filter-type">
         <h3 className="filter-type-heading lg-text">Category</h3>
@@ -120,6 +125,9 @@ const Filter = () => {
           <label htmlFor="saree">Sarees</label>
         </div>
       </div>
+
+                {/* ***********Availabilty-filter******** */}
+
       <div className="filter-type">
         <h3 className="filter-type-heading lg-text">Availability</h3>
         <div className="filter-type-container md-text">
@@ -133,6 +141,9 @@ const Filter = () => {
           <label htmlFor="out-of-stock">Include Out Of Stock</label>
         </div>
       </div>
+
+                {/* **********rating-filter********* */}
+
       <div className="filter-type">
         <h3 className="filter-type-heading lg-text">Rating</h3>
         <div className="filter-type-container md-text">
@@ -202,7 +213,7 @@ const Filter = () => {
         </div>
       </div>
 
-      {/* Sort By Price Filter */}
+                {/* **********sort filter********* */}
 
       <div className="filter-type">
         <h3 className="filter-type-heading lg-text">Sort by</h3>
