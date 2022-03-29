@@ -14,7 +14,7 @@ const initialState={
     setError: null,
     showAll: true,
     priceValue: 0,
-    sortByCategory: null,
+    sortByCategory: [],
     sortByRating: null
     
 
@@ -39,7 +39,7 @@ const ProductProvider = ({children}) => {
 const sortedData = sortPrice(state.dataList, state.sortBy);
 const filteredData = filteredProduct(sortedData,state);
 const filteredPriceData = filterPrice(filteredData, state.priceValue);
-const filteredCategoryData = filterCategory(filteredPriceData, state.sortByCategory)
+const filteredCategoryData = filterCategory(filteredPriceData, state)
 const finalfilteredList = filterRating(filteredCategoryData, state.sortByRating)
 // console.log("in context", sortedData)
 
