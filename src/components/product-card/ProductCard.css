@@ -1,32 +1,51 @@
-  .card {
-    margin: 0;
-  }
-  
-  .card .card-body .card-subtitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .card-floating-icon {
-    font-size: 1.6rem;
-    cursor: pointer;
-    color: var(--red);
-  }
-  
+.card {
+  margin: 0;
+}
+.card-with-badge .card-badge {
+  position: absolute;
+  left: -1px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
 
-  @media only screen and (max-width: 665px) {
-    .product-display-container {
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    }
-    .vertical-card {
-      width: 15rem;
-    }
-  }
+.card .card-body .card-subtitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  @media only screen and (max-width: 589px) {
-    .card {
-      margin: 0 auto;
-    }
-  }
-  
+.card-floating-icon .wishlist-icon {
+  cursor: pointer;
+  color: var(--lynx-gray-color);
+}
+.card-floating-icon .wishlist-icon:hover {
+  color: var(--red);
+}
+.card .card-body {
+  position: relative;
+}
+.rating-badge {
+  width: max-content;
+  color: var(--lynx-white-color);
+  position: absolute;
+  top: 0.8rem;
+  right: 1.2rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 1.2rem;
+  font-weight: var(--regular-font);
+}
+.bg-green {
+  background-color: green;
+}
+.bg-yellow {
+  background-color: rgb(211, 209, 115);
+}
+
+.rating-badge .rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.rating-badge .rating-container .rating-number {
+  padding-right: 0.5rem;
+}
