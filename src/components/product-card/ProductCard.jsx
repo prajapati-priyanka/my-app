@@ -29,8 +29,8 @@ const ProductCard = ({products}) =>{
             <p className="card-subtitle md-text">{subtitle}</p>
             <div className="card-price">
                 <span className="price-after-discount md-text">₹{price}</span>
-                <span className="price-before-discount md-text">₹20,999</span>
-                <span className="discount md-text">(5% off)</span>
+                {/* <span className="price-before-discount md-text">₹20,999</span> */}
+                {/* <span className="discount md-text">(5% off)</span> */}
             </div>
             <button className="btn btn-primary">ADD TO CART</button>
         </section>
