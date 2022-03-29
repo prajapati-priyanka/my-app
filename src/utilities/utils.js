@@ -14,7 +14,7 @@ const sortPrice = (productList, sortBy) => {
  };
 
 const filteredProduct = (productList, state)=>{
-    return productList.filter(item => state.showAll ? true : !item.isSoldOut)
+    return productList.filter(item => state.showAllProduct ? true : !item.isSoldOut)
 }
 
 const filterPrice = (productList, priceValue)=>{
