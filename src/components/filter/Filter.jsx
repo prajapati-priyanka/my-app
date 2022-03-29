@@ -124,7 +124,7 @@ const categoryClickHandler = (event) =>{
                     type="checkbox" 
                     id="out-of-stock" 
                     className="input-check" 
-                    checked={state.showAll} 
+                    checked={state.showAllProduct} 
                     onChange={()=>dispatch({type:"FILTER_OUT_OF_STOCK"})}/>
                     <label htmlFor="out-of-stock">Include Out Of Stock</label>
                 </div>

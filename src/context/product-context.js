@@ -12,7 +12,7 @@ const initialState={
     dataList: [],
     sortBy: null,
     setError: null,
-    showAll: true,
+    showAllProduct: true,
     priceValue: 0,
     sortByCategory: [],
     sortByRating: null

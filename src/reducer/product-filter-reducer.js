@@ -19,7 +19,7 @@ const sortReducer = (state, action) => {
       case "FILTER_OUT_OF_STOCK":
         return {
           ...state,
-          showAll: !state.showAll
+          showAllProduct: !state.showAllProduct
         }
         case "PRICE_SLIDER":
         return {
@@ -50,7 +50,7 @@ const sortReducer = (state, action) => {
               isLoading: false,
               sortBy: null,
              setError: null,
-             showAll: true,
+             showAllProduct: true,
              priceValue: 0,
             sortByCategory: [],
              sortByRating: null
