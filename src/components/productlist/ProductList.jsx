@@ -8,7 +8,7 @@ const ProductList = () => {
         <main className="product-display">
             <div className="product-display-qty text-center ">
                 <strong className="lg-text">Showing all products</strong>
-                <small className="md-text">(Showing 20 products)</small>
+                <small className="md-text">(Showing {finalfilteredList.length} products)</small>
             </div>
             <div className="product-display-container">
                  {
