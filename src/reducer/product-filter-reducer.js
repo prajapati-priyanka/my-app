@@ -27,41 +27,24 @@ const sortReducer = (state, action) => {
           priceValue: action.payload
         }
             
-        case "SORT_BY_TOP_CATEGORY":
+        case "SORT_BY_CATEGORY":
         return {
           ...state,
-          sortByCategory: action.type
+          sortByCategory: [...state.sortByCategory, action.payload]
         }
-        case "SORT_BY_JEANS_CATEGORY":
+        case "REMOVE_CATEGORY":
         return {
           ...state,
-          sortByCategory: action.type
+          sortByCategory: state.sortByCategory.filter(category => category !==action.payload)
         }
-            
-        case "SORT_BY_DRESSES_CATEGORY":
-        return {
-          ...state,
-          sortByCategory: action.type
-        }
-        case "SORT_BY_KURTA_SET_CATEGORY":
-        return {
-          ...state,
-          sortByCategory: action.type
-        }
-        case "SORT_BY_SAREES_CATEGORY":
-        return {
-          ...state,
-          sortByCategory: action.type
-        }
+       
         case "FILTER_RATING":
             return {
               ...state,
-              sortByCategory: action.payload
+              sortByRating: action.payload
             }
              
-            
-            
-    
+           
         default:
            return state
     }
