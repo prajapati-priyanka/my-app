@@ -51,7 +51,7 @@ export const products = [
     image:"/assets/products/prod-5.jpg",
     title: "Marie Claire",
     subtitle: "Women Pink Printed Top",
-    price: 545,
+    price: 300,
     categoryName: "Top",
     isSoldOut:true,
     rating: 2.4
@@ -61,7 +61,7 @@ export const products = [
     image:"/assets/products/prod-6.jpg",
     title: "STREET 9",
     subtitle: "Women Blue Flared Mid-Rise Slash Knee Stretchable Jeans",
-    price: 4000,
+    price: 3500,
     categoryName: "Jeans",
     isSoldOut: true,
     rating: 2.5
@@ -81,7 +81,7 @@ export const products = [
     image:"/assets/products/prod-8.jpg",
     title: "Sangria",
     subtitle: "Women Purple Solid Georgette Saree with Embellished Belt ",
-    price: 3500,
+    price: 4000,
     categoryName: "Sarees",
     isSoldOut:true,
     rating: 4.3
@@ -91,7 +91,7 @@ export const products = [
     image:"/assets/products/prod-9.jpg",
     title: "Suta",
     subtitle: "Pink & Golden Solid Zari Pure Linen Saree",
-    price: 5500,
+    price: 5000,
     categoryName: "Sarees",
     isSoldOut: false,
     rating: 2.5,
@@ -101,7 +101,7 @@ export const products = [
     image:"/assets/products/prod-10.jpg",
     title: "INDYA",
     subtitle: "Indya Navy Sequin Embroidered Panel Kurta ",
-    price: 1500,
+    price: 800,
     categoryName: "Kurta Set",
     isSoldOut:false,
     rating: 2.9
@@ -111,7 +111,7 @@ export const products = [
     image:"/assets/products/prod-11.jpg",
     title: "Anouk",
     subtitle: "Navy Blue Printed Peplum Top",
-    price: 700,
+    price: 500,
     categoryName: "Top",
     isSoldOut:true,
     rating: 1.9
@@ -121,7 +121,7 @@ export const products = [
     image:"/assets/products/prod-12.jpg",
     title: "La Zoire",
     subtitle: "Lime Green Mini A-Line Dress",
-    price: 15000,
+    price: 2350,
     categoryName: "Dresses",
     isSoldOut:false,
     rating: 3.9
