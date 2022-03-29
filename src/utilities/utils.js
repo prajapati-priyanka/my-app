@@ -26,39 +26,25 @@ return updatedList
     
 }
 
-const filterCategory =(productList, category)=>{
-    if(category === "SORT_BY_TOP_CATEGORY"){
-        return productList.filter(item=> item.categoryName === "Top")
-    }
-    if(category === "SORT_BY_JEANS_CATEGORY"){
-        return productList.filter(item=> item.categoryName === "Jeans")
-    }
-    if(category === "SORT_BY_DRESSES_CATEGORY"){
-        return productList.filter(item=> item.categoryName === "Dresses")
-    }
-    if(category === "SORT_BY_KURTA_SET_CATEGORY"){
-        return productList.filter(item=> item.categoryName === "Kurta Set")
-    }
-    if(category === "SORT_BY_SAREES_CATEGORY"){
-        return productList.filter(item=> item.categoryName === "Sarees")
-    }
-    else{
-        return productList
-    }
+const filterCategory =(productList,state)=>{
+    const categoryList = state.sortByCategory;
+    return categoryList.length===0 ? productList:
+    productList.filter((item)=>categoryList.some((category)=>category===item.categoryName))
 }
 
+
 const filterRating = (productList, rating) => {
-    if(rating === "4 stars & above"){
-        return productList.filter(item => item.rating >= rating)
+    if(rating === "FOUR_STARS_AND_ABOVE"){
+        return productList.filter(item => item.rating >= 4)
     }
-    if(rating === "3 stars & above"){
-        return productList.filter(item=> item.rating >= rating)
+    if(rating === "THREE_STARS_AND_ABOVE"){
+        return productList.filter(item=> item.rating >= 3 && item.rating <= 4)
     }
-    if(rating === "2 stars & above"){
-        return productList.filter(item=> item.rating >= rating)
+    if(rating === "TWO_STARS_AND_ABOVE"){
+        return productList.filter(item=> item.rating >= 2 && item.rating <=3)
     }
-    if(rating === "1 stars & above"){
-        return productList.filter(item=> item.rating >=rating)
+    if(rating === "ONE_STARS_AND_ABOVE"){
+        return productList.filter(item=> item.rating >=1 && item.rating <=2)
     }
     return productList;
 }
