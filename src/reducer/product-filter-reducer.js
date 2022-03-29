@@ -44,6 +44,18 @@ const sortReducer = (state, action) => {
               sortByRating: action.payload
             }
              
+        case "CLEAR_ALL_FILTERS":
+            return {
+              ...state,
+              isLoading: false,
+              sortBy: null,
+             setError: null,
+             showAll: true,
+             priceValue: 0,
+            sortByCategory: [],
+             sortByRating: null
+            }
+             
            
         default:
            return state
