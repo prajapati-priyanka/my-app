@@ -5,7 +5,7 @@ import "./ProductCard.css";
 
 const ProductCard = ({products}) =>{
     
-    const {title, subtitle ,id, price,image, isSoldOut,rating} = products
+    const {title, subtitle , price,image, isSoldOut,rating} = products
     return (
         
         <div className="card ecommerce-card card-with-badge card-shadow">
