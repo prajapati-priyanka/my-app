@@ -1,11 +1,19 @@
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
+import { useWishList } from "../../context";
 
 
 const ProductCard = ({products}) =>{
     
     const {title, subtitle , price,image, isSoldOut,rating} = products
+
+    const {wishListState, wishListDispatch} = useWishList();
+    const {wishListItem, wishListCount} = wishListState;
+
+  
+
+    // console.log("From product card:" , id, wishListCount, wishListItem)
     return (
         
         <div className="card ecommerce-card card-with-badge card-shadow">
@@ -13,9 +21,17 @@ const ProductCard = ({products}) =>{
             <img src={image} alt={subtitle} />
         </figure>
        { isSoldOut && <span className="card-badge">Out of Stock</span>}
+       {wishListItem.some(item => item._id === products._id) ? (<span>
         <button className="card-floating-icon">
-           <MdOutlineFavoriteBorder className="wishlist-icon" title="Add To WishList"/>
+           <MdFavorite title="Add To WishList"/>
         </button>
+       </span>) : <span>
+       <button className="card-floating-icon" onClick={()=>wishListDispatch({type:"ADD_PRODUCT_TO_WISHLIST", payload: products})}>
+           <MdFavorite className="wishlist-icon" title="Add To WishList"/>
+        </button>
+           
+           </span>}
+       
         <section className="card-body">
             <h5 className="card-title md-text">{title}</h5>
             <div className={rating >3 ? "rating-badge bg-green" : "rating-badge bg-yellow"}>
