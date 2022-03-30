@@ -8,7 +8,6 @@ import { sortPrice,filteredProduct,filterPrice,filterCategory,filterRating} from
 const ProductContext = createContext();
 
 const initialState={
-    isLoading: false,
     dataList: [],
     sortBy: null,
     setError: null,

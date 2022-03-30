@@ -7,7 +7,6 @@ const sortReducer = (state, action) => {
          case "ERROR":
              return{
                  ...state,
-                 isLoading: false,
                  setError: action.payload
              
          }  
