@@ -20,29 +20,29 @@ const initialState={
 }
 
 const ProductProvider = ({children}) => {
-  const [state, dispatch] = useReducer(sortReducer, initialState);
+  const [filterState, filterDispatch] = useReducer(sortReducer, initialState);
 
   useEffect(()=>{
       (async()=>{
           try {
               const res = await axios.get("./api/products")
               console.log("data from api", res.data.products)
-              dispatch({type:"LOAD_DATA", payload: res.data.products})
+              filterDispatch({type:"LOAD_DATA", payload: res.data.products})
           } catch (error) {
-              dispatch({type: "ERROR", payload:"Error Occurred"})
+              filterDispatch({type: "ERROR", payload:"Error Occurred"})
               
           }
       })();
   },[])
 
-const sortedData = sortPrice(state.dataList, state.sortBy);
-const filteredData = filteredProduct(sortedData,state);
-const filteredPriceData = filterPrice(filteredData, state.priceValue);
-const filteredCategoryData = filterCategory(filteredPriceData, state)
-const finalfilteredList = filterRating(filteredCategoryData, state.sortByRating)
+const sortedData = sortPrice(filterState.dataList, filterState.sortBy);
+const filteredData = filteredProduct(sortedData,filterState);
+const filteredPriceData = filterPrice(filteredData, filterState.priceValue);
+const filteredCategoryData = filterCategory(filteredPriceData, filterState)
+const finalfilteredList = filterRating(filteredCategoryData, filterState.sortByRating)
 // console.log("in context", sortedData)
 
-    return <ProductContext.Provider value={{state, finalfilteredList, dispatch}}>
+    return <ProductContext.Provider value={{filterState, finalfilteredList, filterDispatch}}>
         {children}
     </ProductContext.Provider>
 }

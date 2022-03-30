@@ -2,9 +2,9 @@ import { useProduct } from "../../context/product-context";
 import "./Filter.css";
 
 const Filter = () => {
-  const { state, dispatch } = useProduct();
+  const { filterState, filterDispatch } = useProduct();
 
-  console.log("In Filter", state, dispatch);
+  console.log("In Filter", filterState, filterDispatch);
 
   const categoryClickHandler = (event) => {
     let checkedCategory = event.target.checked;
@@ -23,7 +23,7 @@ const Filter = () => {
         <h3 className="product-filter-heading lg-text">Filters</h3>
         <button
           className="reset md-text"
-          onClick={() => dispatch({ type: "CLEAR_ALL_FILTERS" })}
+          onClick={() => filterDispatch({ type: "CLEAR_ALL_FILTERS" })}
         >
           Clear
         </button>
@@ -41,13 +41,13 @@ const Filter = () => {
             type="range"
             min="300"
             max="5500"
-            value={state.price}
+            value={filterState.price}
             className="slider"
             id="myRange"
             list="marks"
             step="1000"
             onChange={(e) =>
-              dispatch({ type: "PRICE_SLIDER", payload: e.target.value })
+              filterDispatch({ type: "PRICE_SLIDER", payload: e.target.value })
             }
           />
           <dataList id="marks" className="datalist-options">
@@ -71,8 +71,8 @@ const Filter = () => {
             className="input-check"
             name="category-sort"
             value="Top"
-            checked={state.sortByCategory.includes("Top")}
-            onChange={(event) => dispatch(categoryClickHandler(event))}
+            checked={filterState.sortByCategory.includes("Top")}
+            onChange={(event) => filterDispatch(categoryClickHandler(event))}
           />
           <label htmlFor="top">Top</label>
         </div>
@@ -83,8 +83,8 @@ const Filter = () => {
             className="input-check"
             name="category-sort"
             value="Jeans"
-            checked={state.sortByCategory.includes("Jeans")}
-            onChange={(event) => dispatch(categoryClickHandler(event))}
+            checked={filterState.sortByCategory.includes("Jeans")}
+            onChange={(event) => filterDispatch(categoryClickHandler(event))}
           />
           <label htmlFor="jeans">Jeans</label>
         </div>
@@ -95,8 +95,8 @@ const Filter = () => {
             className="input-check"
             name="category-sort"
             value="Dresses"
-            checked={state.sortByCategory.includes("Dresses")}
-            onChange={(event) => dispatch(categoryClickHandler(event))}
+            checked={filterState.sortByCategory.includes("Dresses")}
+            onChange={(event) => filterDispatch(categoryClickHandler(event))}
           />
           <label htmlFor="dresses">Dresses</label>
         </div>
@@ -107,8 +107,8 @@ const Filter = () => {
             className="input-check"
             name="category-sort"
             value="Kurta Set"
-            checked={state.sortByCategory.includes("Kurta Set")}
-            onChange={(event) => dispatch(categoryClickHandler(event))}
+            checked={filterState.sortByCategory.includes("Kurta Set")}
+            onChange={(event) => filterDispatch(categoryClickHandler(event))}
           />
           <label htmlFor="kurta-set">Kurta Set</label>
         </div>
@@ -119,8 +119,8 @@ const Filter = () => {
             className="input-check"
             name="category-sort"
             value="Sarees"
-            checked={state.sortByCategory.includes("Sarees")}
-            onChange={(event) => dispatch(categoryClickHandler(event))}
+            checked={filterState.sortByCategory.includes("Sarees")}
+            onChange={(event) => filterDispatch(categoryClickHandler(event))}
           />
           <label htmlFor="saree">Sarees</label>
         </div>
@@ -135,8 +135,8 @@ const Filter = () => {
             type="checkbox"
             id="out-of-stock"
             className="input-check"
-            checked={state.showAllProduct}
-            onChange={() => dispatch({ type: "FILTER_OUT_OF_STOCK" })}
+            checked={filterState.showAllProduct}
+            onChange={() => filterDispatch({ type: "FILTER_OUT_OF_STOCK" })}
           />
           <label htmlFor="out-of-stock">Include Out Of Stock</label>
         </div>
@@ -154,7 +154,7 @@ const Filter = () => {
             name="rating-sort"
             value="4_STARS_AND_ABOVE"
             onChange={(e) =>
-              dispatch({
+              filterDispatch({
                 type: "FILTER_RATING",
                 payload: "FOUR_STARS_AND_ABOVE",
               })
@@ -170,7 +170,7 @@ const Filter = () => {
             name="rating-sort"
             value="3_STARS_AND_ABOVE"
             onChange={(e) =>
-              dispatch({
+              filterDispatch({
                 type: "FILTER_RATING",
                 payload: "THREE_STARS_AND_ABOVE",
               })
@@ -186,7 +186,7 @@ const Filter = () => {
             name="rating-sort"
             value="2_STARS_AND_ABOVE"
             onChange={(e) =>
-              dispatch({
+              filterDispatch({
                 type: "FILTER_RATING",
                 payload: "TWO_STARS_AND_ABOVE",
               })
@@ -203,7 +203,7 @@ const Filter = () => {
             name="rating-sort"
             value="1_STARS_AND_ABOVE"
             onChange={(e) =>
-              dispatch({
+              filterDispatch({
                 type: "FILTER_RATING",
                 payload: "ONE_STARS_AND_ABOVE",
               })
@@ -224,7 +224,7 @@ const Filter = () => {
             className="input-radio"
             name="sort"
             value="Low-to-High"
-            onChange={() => dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })}
+            onChange={() => filterDispatch({ type: "SORT", payload: "LOW_TO_HIGH" })}
           />
           <label htmlFor="low-high">Price-Low to High</label>
         </div>
@@ -235,7 +235,7 @@ const Filter = () => {
             className="input-radio"
             name="sort"
             value="High-to-Low"
-            onChange={() => dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })}
+            onChange={() => filterDispatch({ type: "SORT", payload: "HIGH_TO_LOW" })}
           />
           <label htmlFor="high-low">Price-High to Low</label>
         </div>

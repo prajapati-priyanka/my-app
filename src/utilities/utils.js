@@ -13,8 +13,8 @@ const sortPrice = (productList, sortBy) => {
         return updatedList;
  };
 
-const filteredProduct = (productList, state)=>{
-    return productList.filter(item => state.showAllProduct ? true : !item.isSoldOut)
+const filteredProduct = (productList, filterState)=>{
+    return productList.filter(item => filterState.showAllProduct ? true : !item.isSoldOut)
 }
 
 const filterPrice = (productList, priceValue)=>{
@@ -26,8 +26,8 @@ return updatedList
     
 }
 
-const filterCategory =(productList,state)=>{
-    const categoryList = state.sortByCategory;
+const filterCategory =(productList,filterState)=>{
+    const categoryList = filterState.sortByCategory;
     return categoryList.length===0 ? productList:
     productList.filter((item)=>categoryList.some((category)=>category===item.categoryName))
 }
