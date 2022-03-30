@@ -38,13 +38,13 @@ const filterRating = (productList, rating) => {
         return productList.filter(item => item.rating >= 4)
     }
     if(rating === "THREE_STARS_AND_ABOVE"){
-        return productList.filter(item=> item.rating >= 3 && item.rating <= 4)
+        return productList.filter(item=> item.rating >= 3)
     }
     if(rating === "TWO_STARS_AND_ABOVE"){
-        return productList.filter(item=> item.rating >= 2 && item.rating <=3)
+        return productList.filter(item=> item.rating >= 2)
     }
     if(rating === "ONE_STARS_AND_ABOVE"){
-        return productList.filter(item=> item.rating >=1 && item.rating <=2)
+        return productList.filter(item=> item.rating >=1)
     }
     return productList;
 }
