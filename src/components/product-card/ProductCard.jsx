@@ -1,5 +1,5 @@
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { BsStar } from "react-icons/bs";
+import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
 
 
@@ -21,7 +21,7 @@ const ProductCard = ({products}) =>{
             <div className={rating >3 ? "rating-badge bg-green" : "rating-badge bg-yellow"}>
                 <div className="rating-container">
                     <span className="rating-number">{rating}</span>
-                      <BsStar className="rating-star"/>
+                      <BsStarFill className="rating-star"/>
 
                 </div>
             </div>
