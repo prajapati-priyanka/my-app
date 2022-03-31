@@ -7,12 +7,12 @@ const Wishlist = () => {
 
     const{wishListItem} = wishListState;
     return (
-        <div>
+        <div className="wishlist-page">
             <Nav />
             <main>
             <h3 className="page-title text-center lg-text">My Wishlist({wishListItem.length})</h3>
             <div className ="wishlist-container">
-                {wishListItem.length===0 ? <h2>No items wishlisted</h2> : 
+                {wishListItem.length===0 ? <h2 className="no-product-text">No items wishlisted</h2> : 
                 wishListItem.map(product => <WishlistCard products ={product} key={product._id} /> )}
             </div>
             </main>
