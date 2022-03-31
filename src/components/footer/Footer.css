@@ -1,6 +1,6 @@
 .footer-content {
-    bottom: 0;
-    margin: 2rem 0 0 0;
+    /* bottom: 0; */
+    margin: 4rem 0 0 0;
     padding: 2rem;
     background-color: var(--light-secondary-color);
   }
