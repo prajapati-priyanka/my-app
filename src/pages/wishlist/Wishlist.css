@@ -7,9 +7,12 @@
     width: 80%;
     margin: 3rem auto;
     display: grid;
-   grid-gap:1rem;
+    grid-gap:1rem;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 
+  }
+  .no-product-text{
+    height: 37.5rem;
   }
 
   @media only screen and (max-width: 540px) {
