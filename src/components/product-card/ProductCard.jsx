@@ -23,7 +23,7 @@ const ProductCard = ({products}) =>{
        { isSoldOut && <span className="card-badge">Out of Stock</span>}
        {wishListItem.some(item => item._id === products._id) ? (<span>
         <button className="card-floating-icon" onClick={()=>wishListDispatch({type:"REMOVE_PRODUCT_FROM_WISHLIST", payload: products})}>
-           <MdFavorite title="Add To WishList"/>
+           <MdFavorite title="Added To WishList"/>
         </button>
        </span>) : <span>
        <button className="card-floating-icon" onClick={()=>wishListDispatch({type:"ADD_PRODUCT_TO_WISHLIST", payload: products})}>
