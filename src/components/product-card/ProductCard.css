@@ -15,7 +15,6 @@
 }
 
 .card-floating-icon .wishlist-icon {
-  cursor: pointer;
   color: var(--lynx-gray-color);
 }
 .card-floating-icon .wishlist-icon:hover {
