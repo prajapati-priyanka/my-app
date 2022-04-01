@@ -11,6 +11,12 @@
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 
   }
+  .card-floating-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--red);
+  }
+  
   .no-product-text{
     height: 37.5rem;
   }
@@ -37,11 +43,5 @@
     }
   }
 
-  .card-floating-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--red);
-    background-color: var(--lynx-white-color);
-    
-  }
+ 
   
