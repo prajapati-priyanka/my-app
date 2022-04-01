@@ -34,10 +34,10 @@
   font-weight: var(--regular-font);
 }
 .bg-green {
-  background-color: green;
+  background-color: var(--green);
 }
 .bg-yellow {
-  background-color: rgb(211, 209, 115);
+  background-color: var(--ratingLessThanThree);
 }
 
 .rating-badge .rating-container {
