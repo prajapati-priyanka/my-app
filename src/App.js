@@ -1,5 +1,6 @@
 import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut } from "./pages";
 import { Routes, Route } from "react-router-dom";
+import MockmanEs from "mockman-js";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="signout" element={<SignOut />} />
+        <Route path="mock" element={<MockmanEs />} />
       </Routes>
     </div>
   );
