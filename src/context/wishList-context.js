@@ -4,7 +4,6 @@ import { wishListReducer } from "../reducer/wishList-reducer";
 
 const wishListInitialState = {
   wishListItem: [],
-  wishListCount: null,
 };
 
 const encodedToken =
@@ -32,25 +31,33 @@ const WishListProvider = ({ children }) => {
           payload: response.data.wishlist,
         });
       } catch (err) {
-        console.log(err);
+        alert(err);
       }
     })();
   }, []);
 
-  const addProductToWishList = async (products) => {
+  const addProductToWishList = async (products, setIsDisabled) => {
     try {
+      setIsDisabled(true);
       const response = await axios.post(
         "/api/user/wishlist",
         { product: products },
         config
       );
 
-      wishListDispatch({
-        type: "ADD_PRODUCT_TO_WISHLIST",
-        payload: response.data.wishlist,
-      });
+      if (response.status === 201) {
+        wishListDispatch({
+          type: "ADD_PRODUCT_TO_WISHLIST",
+          payload: response.data.wishlist,
+        });
+        // setIsDisabled(false)
+      } else {
+        throw new Error("Couldn't complete the request");
+      }
     } catch (err) {
-      console.log(err);
+      alert(err);
+    } finally {
+      setIsDisabled(false);
     }
   };
 
@@ -61,12 +68,16 @@ const WishListProvider = ({ children }) => {
         config
       );
 
-      wishListDispatch({
-        type: "DELETE_PRODUCT_FROM_WISHLIST",
-        payload: response.data.wishlist,
-      });
+      if (response.status === 200) {
+        wishListDispatch({
+          type: "DELETE_PRODUCT_FROM_WISHLIST",
+          payload: response.data.wishlist,
+        });
+      } else {
+        throw new Error("Couldn't complete the request");
+      }
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
