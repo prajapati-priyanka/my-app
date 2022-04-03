@@ -7,9 +7,24 @@
     width: 80%;
     margin: 3rem auto;
     display: grid;
-   grid-gap:1rem;
+    grid-gap:1rem;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 
+  }
+  .card-floating-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--red);
+  }
+  
+  .no-product-text{
+    height: 37.5rem;
+  }
+  .go-to-product{
+    color: var(--primary-color);
+  }
+  .go-to-product:hover{
+    text-decoration: underline;
   }
 
   @media only screen and (max-width: 540px) {
@@ -34,11 +49,5 @@
     }
   }
 
-  .card-floating-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--red);
-    background-color: var(--lynx-white-color);
-    
-  }
+ 
   

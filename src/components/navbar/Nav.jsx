@@ -4,9 +4,12 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useWishList } from "../../context";
 
 
 const Nav = ()=>{
+    const {wishListState} = useWishList();
+    const {wishListItem} = wishListState;
     return (
         <header className="header">
         
@@ -33,7 +36,7 @@ const Nav = ()=>{
                         <Link to="/wishlist">
                             <div className="icon badge">
                                 <MdOutlineFavoriteBorder />
-                                <span className="badge-count">8</span>
+                                {wishListItem.length === 0 ? "" : <span className="badge-count">{wishListItem.length}</span>}
                             </div>
                         </Link>
                     </li>

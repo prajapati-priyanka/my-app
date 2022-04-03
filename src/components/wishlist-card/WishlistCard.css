@@ -1,13 +1,23 @@
 .card {
     margin: 0;
   }
-  .card-floating-icon {
-    font-size: 1.6rem;
-    cursor: pointer;
-    color: var(--red);
-    background-color: var(--lynx-white-color);
-    
-  } 
+  .card-with-dismiss{
+    position: relative;
+  }
+.card-with-dismiss .close-icon {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--lynx-white-color);
+  border-radius: 50%;
+  padding: 0.2rem 0.4rem;
+}
+
+.card-with-dismiss .close-icon:hover {
+  color: var(--gray-color);
+}
 
   @media only screen and (max-width: 540px) {
    

@@ -4,12 +4,7 @@ const sortReducer = (state, action) => {
             return {
                 ...state, dataList: action.payload
             }
-         case "ERROR":
-             return{
-                 ...state,
-                 setError: action.payload
-             
-         }  
+            
          case "SORT":
       return {
         ...state,
