@@ -27,7 +27,6 @@ const ProductProvider = ({ children }) => {
     (async () => {
       try {
         const res = await axios.get("./api/products");
-        console.log("data from api", res.data.products);
         filterDispatch({ type: "LOAD_DATA", payload: res.data.products });
       } catch (error) {
         console.log(error)
@@ -43,7 +42,7 @@ const ProductProvider = ({ children }) => {
     filteredCategoryData,
     filterState.sortByRating
   );
-  // console.log("in context", sortedData)
+
 
   return (
     <ProductContext.Provider
