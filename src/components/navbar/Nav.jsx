@@ -9,7 +9,7 @@ import { useWishList } from "../../context";
 
 const Nav = ()=>{
     const {wishListState} = useWishList();
-    const {wishListItem, wishListCount} = wishListState;
+    const {wishListItem} = wishListState;
     return (
         <header className="header">
         
@@ -36,7 +36,7 @@ const Nav = ()=>{
                         <Link to="/wishlist">
                             <div className="icon badge">
                                 <MdOutlineFavoriteBorder />
-                                {wishListItem.length===0 ? "" : <span className="badge-count">{wishListCount}</span>}
+                                {wishListItem.length === 0 ? "" : <span className="badge-count">{wishListItem.length}</span>}
                             </div>
                         </Link>
                     </li>
