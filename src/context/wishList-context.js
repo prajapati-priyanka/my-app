@@ -50,7 +50,6 @@ const WishListProvider = ({ children }) => {
           type: "ADD_PRODUCT_TO_WISHLIST",
           payload: response.data.wishlist,
         });
-        // setIsDisabled(false)
       } else {
         throw new Error("Couldn't complete the request");
       }
