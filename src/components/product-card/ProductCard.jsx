@@ -2,8 +2,10 @@ import { MdFavorite } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
 import { useWishList } from "../../context";
+import { useState } from "react";
 
 const ProductCard = ({ products }) => {
+  const [isdisabled, setIsDisabled] = useState(false);
   const { title, subtitle, price, image, isSoldOut, rating } = products;
   const { wishListState, addProductToWishList, deleteProductFromWishlist } =
     useWishList();
@@ -32,7 +34,8 @@ const ProductCard = ({ products }) => {
         <span>
           <button
             className="card-floating-icon"
-            onClick={() => addProductToWishList(products)}
+            disabled={isdisabled}
+            onClick={() => addProductToWishList(products, setIsDisabled)}
           >
             <MdFavorite className="wishlist-icon" title="Add To WishList" />
           </button>
