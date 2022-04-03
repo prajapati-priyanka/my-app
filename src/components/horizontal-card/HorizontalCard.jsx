@@ -1,16 +1,21 @@
 import { MdAddCircleOutline } from "react-icons/md";
 import { FiMinusCircle } from "react-icons/fi";
 import "./HorizontalCard.css";
+import { useCart, useWishList } from "../../context";
+import { useState } from "react";
 
-const HorizontalCard = (props) => {
+const HorizontalCard = ({products}) => {
+  const[isDisabled, setIsDisabled] = useState(false)
+  const {removeFromCart} = useCart();
+  const {addProductToWishList} = useWishList();
   const {
     image,
     title,
     subtitle,
-    priceAfterDiscount,
+    price,
     priceBeforeDiscount,
     discount,
-  } = props;
+  } = products;
 
   return (
     <div className="card card-horizontal card-shadow">
@@ -23,7 +28,7 @@ const HorizontalCard = (props) => {
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
           <span className="price-after-discount md-text">
-            {priceAfterDiscount}
+          ₹{price}
           </span>
           <span className="price-before-discount md-text">
             {priceBeforeDiscount}
@@ -41,8 +46,11 @@ const HorizontalCard = (props) => {
           </button>
         </div>
         <div className="card-btn">
-          <button className="btn btn-primary">REMOVE FROM CART</button>
-          <button className="btn btn-outline-primary">SAVE TO WISHLIST</button>
+          <button className="btn btn-primary" onClick={()=>removeFromCart(products)}>REMOVE FROM CART</button>
+          <button className="btn btn-outline-primary" disabled={isDisabled} onClick={()=>{
+            addProductToWishList(products, setIsDisabled);
+            removeFromCart(products)
+          }}>SAVE TO WISHLIST</button>
         </div>
       </section>
     </div>
