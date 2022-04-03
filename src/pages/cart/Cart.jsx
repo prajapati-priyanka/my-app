@@ -1,32 +1,31 @@
 import {Nav, HorizontalCard,Footer} from "../../components";
+import { Link } from "react-router-dom";
 import "./Cart.css";
 import "../wishlist/Wishlist.css"
+import { useCart } from "../../context";
 
 const Cart = ()=>{
+    const {cartState} = useCart();
+    const {cartItem} = cartState;
     return (
         <div>
          <Nav />
          <main>
-        <h3 className="page-title text-center lg-text">My Cart(2)</h3>
+        <h3 className="page-title text-center lg-text">My Cart({cartItem.length})</h3>
         <div className="cart-bill-container ">
             <div className="cart-container">
-              <HorizontalCard image = {"/assets/cart/cart-1.jpg"} 
-                             title ={"JUNEBERRY"}
-                             subtitle={"Casual Regular Sleeves Striped Women Blue Top"}
-                             priceAfterDiscount = {"₹299"}
-                             priceBeforeDiscount ={"₹1,199"}
-                             discount ={("75% off")}
-
-              />
-              <HorizontalCard image = {"/assets/cart/cart-2.jpg"} 
-                             title ={"DRESSBERRY"}
-                             subtitle={" Cotton Multi Color T-Shirts"}
-                             priceAfterDiscount = {"₹329"}
-                             priceBeforeDiscount ={"₹1,199"}
-                             discount ={("73% off")}
-
-              />
+            {cartItem.length === 0 ? (
+            <h2 className="no-product-text text-center">
+              Hey,it feels so light!<Link to="/product" className="go-to-product"><small>Let's add some items.</small></Link>
+            </h2>
+          ) : (
+            cartItem.map((product) => (
+              <HorizontalCard products={product} key={product._id} />
+            ))
+          )}
+            
             </div>
+            {cartItem.length===0 ? "" :
             <div className="bill-container">
                <div className="bill-card">
                    <h5 className="card-title lg-text">PRICE DETAILS</h5>
@@ -56,7 +55,7 @@ const Cart = ()=>{
                    <button className="btn btn-primary">PLACE ORDER</button>
                </div>
    
-            </div>
+            </div>}
         </div>
     </main>
     <Footer />
