@@ -4,12 +4,16 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useWishList } from "../../context";
+import { useCart, useWishList } from "../../context";
 
 
 const Nav = ()=>{
     const {wishListState} = useWishList();
+    const {cartState} = useCart();
     const {wishListItem} = wishListState;
+    const {cartItem} = cartState;
+
+    
     return (
         <header className="header">
         
@@ -44,7 +48,7 @@ const Nav = ()=>{
                         <Link to="/cart">
                             <div className="icon badge">
                                 <BsCart />
-                                <span className="badge-count">8</span>
+                                {cartItem.length === 0 ? "" : <span className="badge-count">{cartItem.length}</span>}
                             </div>
                         </Link>
                     </li>
