@@ -1,8 +1,9 @@
 import { MdFavorite } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
-import { useWishList } from "../../context";
+import { useCart, useWishList } from "../../context";
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 const ProductCard = ({ products }) => {
   const [isdisabled, setIsDisabled] = useState(false);
@@ -11,9 +12,16 @@ const ProductCard = ({ products }) => {
     useWishList();
   const { wishListItem } = wishListState;
 
+  const {cartState, addToCart} = useCart();
+  const {cartItem} = cartState;
+
   const checkWishlistStatus = (products, wishListItem) => {
     return wishListItem.some((item) => item._id === products._id);
   };
+
+const checkCartStatus = (products, cartItem) => {
+  return cartItem.find(item => item._id === products._id)
+}
 
   return (
     <div className="card ecommerce-card card-with-badge card-shadow">
@@ -61,7 +69,9 @@ const ProductCard = ({ products }) => {
           {/* <span className="price-before-discount md-text">₹20,999</span> */}
           {/* <span className="discount md-text">(5% off)</span> */}
         </div>
-        <button className="btn btn-primary">ADD TO CART</button>
+        {checkCartStatus(products,cartItem) ? (<Link to="/cart"><button className="btn btn-primary">GO TO CART</button></Link>) : (
+        <button className="btn btn-primary" disabled={isdisabled} onClick={()=> addToCart(products,setIsDisabled)}>ADD TO CART</button>)}
+       
       </section>
     </div>
   );
