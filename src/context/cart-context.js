@@ -119,8 +119,31 @@ const incrementQuantity = async (products) => {
     console.log(err);
   }
 };
+const decrementQuantity = async (products) => {
+  console.log("decrement quantity",products);
+  try {
 
-    return <CartContext.Provider value={{cartState, cartDispatch, addToCart,removeFromCart,incrementQuantity}}>
+    const response = await axios.post(
+      `/api/user/cart/${products._id}`,
+      {
+        action: { type: "decrement" },
+      },
+      config
+    );
+    if (response.status === 200) {
+      cartDispatch({
+        type: "UPDATE",
+        payload:  response.data.cart ,
+      });
+    }else{
+      throw new Error("Can't process the request")
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+    return <CartContext.Provider value={{cartState, cartDispatch, addToCart,removeFromCart,incrementQuantity, decrementQuantity}}>
         {children}
     </CartContext.Provider>
 }
