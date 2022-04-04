@@ -8,7 +8,7 @@ const WishlistCard = ({ products }) => {
   const [isDisabled, setIsDisabled] = useState(false)
   const { deleteProductFromWishlist } = useWishList();
   const{addToCart} = useCart();
-  const { title, subtitle, price, image, rating, isSoldOut } = products;
+  const { title, subtitle, priceBeforeDiscount, priceAfterDiscount, discount, image, rating, isSoldOut } = products;
 
   return (
     <div className="card ecommerce-card card-with-badge card-with-dismiss card-shadow">
@@ -39,7 +39,9 @@ const WishlistCard = ({ products }) => {
         </div>
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
-          <span className="price-after-discount md-text">₹{price}</span>
+        <span className="price-after-discount md-text">₹{priceAfterDiscount}</span>
+          <span className="price-before-discount md-text">₹{priceBeforeDiscount}</span>
+          <span className="discount md-text">({discount}% OFF)</span>
         </div>
         <button className="btn btn-primary" disabled={isDisabled} onClick={()=>{
           addToCart(products, setIsDisabled);
