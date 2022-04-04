@@ -15,6 +15,10 @@ const cartReducer = (state, action) =>{
             return{
                 cartItem: [...action.payload]
             }
+        case "UPDATE":
+            return{
+                cartItem: [...action.payload]
+            }
             
     
         default:
