@@ -96,8 +96,8 @@ export const products = [
     title: "Sangria",
     subtitle: "Women Purple Solid Georgette Saree with Embellished Belt ",
     priceAfterDiscount: 4074,
-    priceBeforeDiscount:10186,
-    discount: 60,
+    priceBeforeDiscount:9074,
+    discount: 45,
     categoryName: "Sarees",
     isSoldOut:true,
     rating: 4.3
