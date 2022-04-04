@@ -2,7 +2,7 @@
   max-width: 100%;
   margin: 0;
   width: 100%;
-
+  position: relative;
 }
 .card-horizontal .card-header {
   width: 21%;
@@ -34,12 +34,8 @@
   border: 1px solid var(--lynx-gray-color);
   margin: 0 0.2rem;
 }
-.card-horizontal .card-body .card-btn button {
-  width: 50%;
+.card-horizontal .card-body .card-btn .btn {
+  width: 70%;
 }
 
-@media only screen and (max-width: 460px) {
-  .card-quantity input {
-    min-width: 25%;
-  }
-}
+
