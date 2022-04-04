@@ -1,4 +1,4 @@
-import { MdAddCircleOutline } from "react-icons/md";
+import { FiPlusCircle} from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import "./HorizontalCard.css";
 import { useCart, useWishList } from "../../context";
@@ -12,7 +12,7 @@ const HorizontalCard = ({products}) => {
     image,
     title,
     subtitle,
-    price,
+    priceAfterDiscount,
     priceBeforeDiscount,
     discount,
   } = products;
@@ -27,26 +27,22 @@ const HorizontalCard = ({products}) => {
         <h5 className="card-title md-text">{title}</h5>
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
-          <span className="price-after-discount md-text">
-          ₹{price}
-          </span>
-          <span className="price-before-discount md-text">
-            {priceBeforeDiscount}
-          </span>
-          <span className="discount md-text">{discount}</span>
+        <span className="price-after-discount md-text">₹{priceAfterDiscount}</span>
+          <span className="price-before-discount md-text">₹{priceBeforeDiscount}</span>
+          <span className="discount md-text">({discount}% OFF)</span>
         </div>
         <div className="card-quantity">
           <span className="product-quantity md-text">Quantity:</span>
           <button>
             <FiMinusCircle className="md-text" />
           </button>
-          <input type="number" value="1" className="text-center" />
+          <span className="quantity-number md-text ">1</span>
           <button>
-            <MdAddCircleOutline className="md-text" />
+            <FiPlusCircle className="md-text" />
           </button>
         </div>
         <div className="card-btn">
-          <button className="btn btn-primary" onClick={()=>removeFromCart(products)}>REMOVE FROM CART</button>
+          {/* <button className="btn btn-primary" onClick={()=>removeFromCart(products)}>REMOVE FROM CART</button> */}
           <button className="btn btn-outline-primary" disabled={isDisabled} onClick={()=>{
             addProductToWishList(products, setIsDisabled);
             removeFromCart(products)
