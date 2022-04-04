@@ -26,7 +26,6 @@ useEffect(() => {
     (async () => {
       try {
         const response = await axios.get("/api/user/cart", config);
-        // console.log("in cart response", response.data.cart)
         cartDispatch({
           type: "LOAD_DATA",
           payload: response.data.cart,
@@ -143,7 +142,7 @@ const decrementQuantity = async (products) => {
   }
 };
 
-    return <CartContext.Provider value={{cartState, cartDispatch, addToCart,removeFromCart,incrementQuantity, decrementQuantity}}>
+    return <CartContext.Provider value={{cartState, cartDispatch, addToCart,removeFromCart,incrementQuantity,decrementQuantity}}>
         {children}
     </CartContext.Provider>
 }
