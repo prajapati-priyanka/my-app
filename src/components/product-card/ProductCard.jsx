@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 const ProductCard = ({ products }) => {
   const [isdisabled, setIsDisabled] = useState(false);
-  const { title, subtitle, price, image, isSoldOut, rating } = products;
+  const { title, subtitle, priceAfterDiscount, priceBeforeDiscount, discount, image, isSoldOut, rating } = products;
   const { wishListState, addProductToWishList, deleteProductFromWishlist } =
     useWishList();
   const { wishListItem } = wishListState;
@@ -65,9 +65,9 @@ const checkCartStatus = (products, cartItem) => {
 
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
-          <span className="price-after-discount md-text">₹{price}</span>
-          {/* <span className="price-before-discount md-text">₹20,999</span> */}
-          {/* <span className="discount md-text">(5% off)</span> */}
+          <span className="price-after-discount md-text">₹{priceAfterDiscount}</span>
+          <span className="price-before-discount md-text">₹{priceBeforeDiscount}</span>
+          <span className="discount md-text">({discount}% OFF)</span>
         </div>
         {checkCartStatus(products,cartItem) ? (<Link to="/cart"><button className="btn btn-primary">GO TO CART</button></Link>) : (
         <button className="btn btn-primary" disabled={isdisabled} onClick={()=> addToCart(products,setIsDisabled)}>ADD TO CART</button>)}
