@@ -51,3 +51,10 @@
 .rating-badge .rating-container .rating-number {
   padding-right: 0.5rem;
 }
+
+.link-to-cart{
+  padding: 0;
+}
+.link-to-cart .btn{
+  width: 100%;
+}
