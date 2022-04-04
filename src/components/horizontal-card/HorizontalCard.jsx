@@ -1,6 +1,7 @@
 import { FiPlusCircle} from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import {FiTrash2 } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
 import "./HorizontalCard.css";
 import { useCart, useWishList } from "../../context";
 import { useState } from "react";
@@ -20,7 +21,7 @@ const HorizontalCard = ({products}) => {
   } = products;
 console.log("inHorizontalcard", products )
   return (
-    <div className="card card-horizontal card-shadow">
+    <div className="card card-horizontal card-with-dismiss card-shadow">
       <figure className="card-header">
         <img src={image} className="card-img" alt={subtitle} />
       </figure>
@@ -49,13 +50,19 @@ console.log("inHorizontalcard", products )
           </button>
         </div>
         <div className="card-btn">
-          {/* <button className="btn btn-primary" onClick={()=>removeFromCart(products)}>REMOVE FROM CART</button> */}
           <button className="btn btn-outline-primary" disabled={isDisabled} onClick={()=>{
             addProductToWishList(products, setIsDisabled);
             removeFromCart(products)
           }}>SAVE TO WISHLIST</button>
         </div>
       </section>
+      <button className="close-icon">
+        <MdClose
+          className="lg-text"
+          title="Delete from Cart"
+          onClick={()=>removeFromCart(products)}
+        />
+      </button>
     </div>
   );
 };
