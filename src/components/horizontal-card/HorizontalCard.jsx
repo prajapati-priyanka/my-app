@@ -1,12 +1,13 @@
 import { FiPlusCircle} from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
+import {FiTrash2 } from "react-icons/fi";
 import "./HorizontalCard.css";
 import { useCart, useWishList } from "../../context";
 import { useState } from "react";
 
 const HorizontalCard = ({products}) => {
   const[isDisabled, setIsDisabled] = useState(false)
-  const {removeFromCart} = useCart();
+  const {removeFromCart, incrementQuantity} = useCart();
   const {addProductToWishList} = useWishList();
   const {
     image,
@@ -15,8 +16,9 @@ const HorizontalCard = ({products}) => {
     priceAfterDiscount,
     priceBeforeDiscount,
     discount,
+    qty
   } = products;
-
+console.log("inHorizontalcard", products )
   return (
     <div className="card card-horizontal card-shadow">
       <figure className="card-header">
@@ -32,13 +34,18 @@ const HorizontalCard = ({products}) => {
           <span className="discount md-text">({discount}% OFF)</span>
         </div>
         <div className="card-quantity">
-          <span className="product-quantity md-text">Quantity:</span>
-          <button>
+          <span className="product-quantity md-text">
+            Quantity: {qty === 1 ? <button>
+            <FiTrash2 className="md-text" />
+          </button> : <button>
             <FiMinusCircle className="md-text" />
-          </button>
-          <span className="quantity-number md-text ">1</span>
+          </button>}
+            
+            </span>
+          
+          <span className="quantity-number md-text ">{qty}</span>
           <button>
-            <FiPlusCircle className="md-text" />
+            <FiPlusCircle className="md-text" onClick={()=> incrementQuantity(products)} />
           </button>
         </div>
         <div className="card-btn">
