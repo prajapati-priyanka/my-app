@@ -1,6 +1,9 @@
 .card {
   margin: 0;
 }
+.ecommerce-card{
+  width: 22rem;
+}
 .card-with-badge .card-badge {
   position: absolute;
   left: -1px;
