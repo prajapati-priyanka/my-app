@@ -1,17 +1,29 @@
 import "./CartBill.css"
-const CartBill = () =>{
+const CartBill = ({products}) =>{
+
+    const {cartItem} = products
+    console.log("incartBill",cartItem)
+
+    const totalBagPrice = cartItem.reduce((acc,curr) => acc = (curr.qty * curr.priceBeforeDiscount) + acc ,0);
+    const totalDiscountPrice = cartItem.reduce((acc,curr)=> acc = (curr.qty*curr.priceBeforeDiscount*(curr.discount/100))+ acc ,0)
+    const totalCheckoutPrice = (totalBagPrice - totalDiscountPrice).toFixed(2);
+   
+    
+   
+    
+
     return(
         <div className="bill-container">
         <div className="bill-card">
             <h5 className="card-title lg-text">PRICE DETAILS</h5>
             <div className="items-container">
                 <div className="items-price md-text">
-                    <p className="item-type">Price (2 item)</p>
-                    <p className="item-type-price">₹ 2398</p>
+                    <p className="item-type">Price ({cartItem.length} {cartItem.length===1 ? "item" : "items"})</p>
+                    <p className="item-type-price">₹{totalBagPrice}</p>
                 </div>
                 <div className="items-price md-text">
                     <p className="item-type">Discount</p>
-                    <p className="item-type-price">₹ 1774.52</p>
+                    <p className="item-type-price">₹ {totalDiscountPrice}</p>
                 </div>
                 <div className="items-price md-text">
                     <p className="item-type">Delivery</p>
@@ -20,7 +32,7 @@ const CartBill = () =>{
             </div>
             <div className="items-price total-price-container">
                 <p className="item-type total-price lg-text">Total Amount</p>
-                <p className="item-type-price total-price-value  md-text">₹ 628</p>
+                <p className="item-type-price total-price-value  md-text">₹{totalCheckoutPrice}</p>
             </div>
             <div className="items-price total-saving-container">
                 <p className="item-type total-saving md-text">You will save ₹ 1774.52 on this order </p>
