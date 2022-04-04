@@ -25,7 +25,7 @@ const Cart = ()=>{
           )}
             
             </div>
-            {cartItem.length===0 ? "" : <CartBill /> }
+            {cartItem.length===0 ? "" : <CartBill products={cartState}/> }
         </div>
     </main>
     <Footer />
