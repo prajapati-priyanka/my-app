@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const HorizontalCard = ({products}) => {
   const[isDisabled, setIsDisabled] = useState(false)
-  const {removeFromCart, incrementQuantity} = useCart();
+  const {removeFromCart, incrementQuantity,decrementQuantity} = useCart();
   const {addProductToWishList} = useWishList();
   const {
     image,
@@ -36,9 +36,9 @@ console.log("inHorizontalcard", products )
         <div className="card-quantity">
           <span className="product-quantity md-text">
             Quantity: {qty === 1 ? <button>
-            <FiTrash2 className="md-text" />
+            <FiTrash2 className="md-text" onClick={()=>removeFromCart(products)} />
           </button> : <button>
-            <FiMinusCircle className="md-text" />
+            <FiMinusCircle className="md-text" onClick={()=>decrementQuantity(products)}/>
           </button>}
             
             </span>
