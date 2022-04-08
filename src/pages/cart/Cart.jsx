@@ -5,13 +5,13 @@ import "../wishlist/Wishlist.css"
 import { useCart } from "../../context";
 
 const Cart = ()=>{
-    const {cartState} = useCart();
+    const {cartState, getCartItemCount} = useCart();
     const {cartItem} = cartState;
     return (
         <div>
          <Nav />
          <main>
-        <h3 className="page-title text-center lg-text">My Cart({cartItem.length})</h3>
+        <h3 className="page-title text-center lg-text">My Cart({getCartItemCount(cartItem)})</h3>
         <div className="cart-bill-container ">
             <div className="cart-container">
             {cartItem.length === 0 ? (
