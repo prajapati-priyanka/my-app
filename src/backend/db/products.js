@@ -15,7 +15,7 @@ export const products = [
     priceBeforeDiscount:3299,
     discount: 70,
     categoryName: "Top",
-    isSoldOut: true,
+    isSoldOut: false,
     rating: 3.6
   },
   {
@@ -27,7 +27,7 @@ export const products = [
     priceBeforeDiscount:3499,
     discount: 60,
     categoryName: "Sarees",
-    isSoldOut:true,
+    isSoldOut:false,
     rating: 4
   },
   {
@@ -99,7 +99,7 @@ export const products = [
     priceBeforeDiscount:9074,
     discount: 45,
     categoryName: "Sarees",
-    isSoldOut:true,
+    isSoldOut:false,
     rating: 4.3
   },
   {
@@ -135,7 +135,7 @@ export const products = [
     priceBeforeDiscount:1499,
     discount: 60,
     categoryName: "Top",
-    isSoldOut:true,
+    isSoldOut:false,
     rating: 1.9
   },
   {
