@@ -7,9 +7,11 @@ import { useCart, useWishList } from "../../context";
 import { useState } from "react";
 
 const HorizontalCard = ({products}) => {
-  const[isDisabled, setIsDisabled] = useState(false)
+  const[isDisabled, setIsDisabled] = useState(false);
+  const[isMinusDisabled, setIsMinusDisabled] = useState(false);
+
   const {removeFromCart, incrementQuantity,decrementQuantity} = useCart();
-  const {addProductToWishList} = useWishList();
+  const {addProductToWishList, wishListState} = useWishList();
   const {
     image,
     title,
@@ -19,7 +21,20 @@ const HorizontalCard = ({products}) => {
     discount,
     qty
   } = products;
-console.log("inHorizontalcard", products )
+
+  console.log("in horizontal cards", products)
+  const checkItemExistInWishList = (products) =>{
+    const itemExist = wishListState.wishListItem.find(item => item._id === products._id);
+    console.log("inCheckItemExist", itemExist)
+
+    if(itemExist){
+      removeFromCart(products)
+    }else{
+      addProductToWishList(products,setIsDisabled);
+      removeFromCart(products)
+    }
+  }
+
   return (
     <div className="card card-horizontal card-with-dismiss card-shadow">
       <figure className="card-header">
@@ -36,31 +51,31 @@ console.log("inHorizontalcard", products )
         </div>
         <div className="card-quantity">
           <span className="product-quantity md-text">
-            Quantity: {qty === 1 ? <button>
-            <FiTrash2 className="md-text" onClick={()=>removeFromCart(products)} />
-          </button> : <button>
-            <FiMinusCircle className="md-text" onClick={()=>decrementQuantity(products)}/>
+            Quantity: {qty === 1 ? <button  onClick={()=>removeFromCart(products)} >
+            <FiTrash2 className="md-text"/>
+          </button> : <button disabled={isMinusDisabled} onClick={()=>decrementQuantity(products, setIsMinusDisabled)}>
+            <FiMinusCircle className="md-text" />
           </button>}
             
             </span>
           
           <span className="quantity-number md-text ">{qty}</span>
-          <button>
-            <FiPlusCircle className="md-text" onClick={()=> incrementQuantity(products)} />
+          <button disabled={isDisabled} onClick={()=> incrementQuantity(products,setIsDisabled)}>
+            <FiPlusCircle className="md-text"  />
           </button>
         </div>
         <div className="card-btn">
           <button className="btn btn-outline-primary" disabled={isDisabled} onClick={()=>{
-            addProductToWishList(products, setIsDisabled);
-            removeFromCart(products)
+            checkItemExistInWishList(products);
+           
           }}>SAVE TO WISHLIST</button>
         </div>
       </section>
-      <button className="close-icon">
+      <button className="close-icon"  onClick={()=>removeFromCart(products)}>
         <MdClose
           className="lg-text"
           title="Delete from Cart"
-          onClick={()=>removeFromCart(products)}
+         
         />
       </button>
     </div>
