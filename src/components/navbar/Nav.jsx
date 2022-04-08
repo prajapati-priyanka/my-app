@@ -9,9 +9,11 @@ import { useCart, useWishList } from "../../context";
 
 const Nav = ()=>{
     const {wishListState} = useWishList();
-    const {cartState} = useCart();
+    const {cartState, getCartItemCount} = useCart();
     const {wishListItem} = wishListState;
     const {cartItem} = cartState;
+
+  
 
     
     return (
@@ -48,7 +50,8 @@ const Nav = ()=>{
                         <Link to="/cart">
                             <div className="icon badge">
                                 <BsCart />
-                                {cartItem.length === 0 ? "" : <span className="badge-count">{cartItem.length}</span>}
+                                {/* {cartItem.length === 0 ? "" : <span className="badge-count">{cartItem.length}</span>} */}
+                                {cartItem.length === 0 ? "" : <span className="badge-count">{getCartItemCount(cartItem)}</span>}
                             </div>
                         </Link>
                     </li>

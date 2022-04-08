@@ -1,21 +1,23 @@
+import { useCart } from "../../context";
 import "./CartBill.css";
 const CartBill = ({ products }) => {
+  const {getCartItemCount} = useCart();
   const { cartItem } = products;
   console.log("incartBill", cartItem);
 
   const totalBagPrice = cartItem.reduce(
-    (acc, curr) => (acc = curr.qty * curr.priceBeforeDiscount + acc),
+    (acc, curr) => acc += Number(curr.qty) * Number(curr.priceBeforeDiscount) ,
     0
   );
   const totalDiscountPrice = cartItem.reduce(
     (acc, curr) =>
-      (acc = curr.qty * curr.priceBeforeDiscount * (curr.discount / 100) + acc),
+      acc +=Number(curr.qty) * Number(curr.priceBeforeDiscount) * Number(curr.discount / 100),
     0
   );
   const finalPrice = totalBagPrice - totalDiscountPrice;
   const deliveryCharge = 100;
 
-  const finalCheckoutPrice = Number(finalPrice) + Number(deliveryCharge);
+  const finalCheckoutPrice = finalPrice + deliveryCharge;
 
   return (
     <div className="bill-container">
@@ -24,7 +26,7 @@ const CartBill = ({ products }) => {
         <div className="items-container">
           <div className="items-price md-text">
             <p className="item-type">
-              Price ({cartItem.length}{" "}
+              Price ({getCartItemCount(cartItem)}{" "}
               {cartItem.length === 1 ? "item" : "items"})
             </p>
             <p className="item-type-price">₹{totalBagPrice}</p>
