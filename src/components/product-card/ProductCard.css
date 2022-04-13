@@ -1,7 +1,7 @@
 .card {
   margin: 0;
 }
-.ecommerce-card{
+.ecommerce-card {
   width: 19rem;
 }
 .card-with-badge .card-badge {
@@ -52,12 +52,12 @@
   padding-right: 0.5rem;
 }
 
-.link-to-cart{
+.link-to-cart {
   padding: 0;
 }
-.link-to-cart .btn{
+.link-to-cart .btn {
   width: 100%;
 }
-.btn-disabled{
- pointer-events: none;
+.btn-disabled {
+  pointer-events: none;
 }

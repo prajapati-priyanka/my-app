@@ -3,25 +3,34 @@ import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
 import { useCart, useWishList } from "../../context";
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ products }) => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const { title, subtitle, priceAfterDiscount, priceBeforeDiscount, discount, image, isSoldOut, rating } = products;
+  const {
+    title,
+    subtitle,
+    priceAfterDiscount,
+    priceBeforeDiscount,
+    discount,
+    image,
+    isSoldOut,
+    rating,
+  } = products;
   const { wishListState, addProductToWishList, deleteProductFromWishlist } =
     useWishList();
   const { wishListItem } = wishListState;
 
-  const {cartState, addToCart} = useCart();
-  const {cartItem} = cartState;
+  const { cartState, addToCart } = useCart();
+  const { cartItem } = cartState;
 
   const checkWishlistStatus = (products, wishListItem) => {
     return wishListItem.some((item) => item._id === products._id);
   };
 
-const checkCartStatus = (products, cartItem) => {
-  return cartItem.find(item => item._id === products._id)
-}
+  const checkCartStatus = (products, cartItem) => {
+    return cartItem.find((item) => item._id === products._id);
+  };
 
   return (
     <div className="card ecommerce-card card-with-badge card-shadow">
@@ -65,14 +74,34 @@ const checkCartStatus = (products, cartItem) => {
 
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
-          <span className="price-after-discount md-text">₹{priceAfterDiscount}</span>
-          <span className="price-before-discount md-text">₹{priceBeforeDiscount}</span>
+          <span className="price-after-discount md-text">
+            ₹{priceAfterDiscount}
+          </span>
+          <span className="price-before-discount md-text">
+            ₹{priceBeforeDiscount}
+          </span>
           <span className="discount md-text">({discount}% OFF)</span>
         </div>
-        {isSoldOut ? <button className ="btn btn-primary btn-disabled" disabled= {!isDisabled} >ADD TO CART</button> : (checkCartStatus(products,cartItem) ? <Link to="/cart" className="link-to-cart"><button className="btn btn-primary">GO TO CART</button></Link> : (
-        <button className="btn btn-primary" disabled={isDisabled} onClick={()=> addToCart(products,setIsDisabled)}>ADD TO CART</button>))}
-       
-       
+        {isSoldOut ? (
+          <button
+            className="btn btn-primary btn-disabled"
+            disabled={!isDisabled}
+          >
+            ADD TO CART
+          </button>
+        ) : checkCartStatus(products, cartItem) ? (
+          <Link to="/cart" className="link-to-cart">
+            <button className="btn btn-primary">GO TO CART</button>
+          </Link>
+        ) : (
+          <button
+            className="btn btn-primary"
+            disabled={isDisabled}
+            onClick={() => addToCart(products, setIsDisabled)}
+          >
+            ADD TO CART
+          </button>
+        )}
       </section>
     </div>
   );

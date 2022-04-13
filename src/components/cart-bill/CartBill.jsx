@@ -1,17 +1,19 @@
 import { useCart } from "../../context";
 import "./CartBill.css";
 const CartBill = ({ products }) => {
-  const {getCartItemCount} = useCart();
+  const { getCartItemCount } = useCart();
   const { cartItem } = products;
-  console.log("incartBill", cartItem);
 
   const totalBagPrice = cartItem.reduce(
-    (acc, curr) => acc += Number(curr.qty) * Number(curr.priceBeforeDiscount) ,
+    (acc, curr) => (acc += Number(curr.qty) * Number(curr.priceBeforeDiscount)),
     0
   );
   const totalDiscountPrice = cartItem.reduce(
     (acc, curr) =>
-      acc +=Number(curr.qty) * Number(curr.priceBeforeDiscount) * Number(curr.discount / 100),
+      (acc +=
+        Number(curr.qty) *
+        Number(curr.priceBeforeDiscount) *
+        Number(curr.discount / 100)),
     0
   );
   const finalPrice = totalBagPrice - totalDiscountPrice;

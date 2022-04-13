@@ -1,12 +1,10 @@
-.logo-container{
-    width: 20%;
-    margin-left: 0;
-  
+.logo-container {
+  width: 20%;
+  margin-left: 0;
 }
 .logo-container a {
-    display: flex;
-    align-items: center;
-   
+  display: flex;
+  align-items: center;
 }
 .logo-container img {
   width: 7em;
@@ -60,22 +58,16 @@
 }
 
 @media only screen and (min-width: 270px) and (max-width: 480px) {
-   .header {
+  .header {
     gap: 0;
-   }
+  }
 
   .logo-container .logo-name {
-      margin-left: -1rem;
+    margin-left: -1rem;
   }
-  
- .header-links ul{
-     gap: 0;
+
+  .header-links ul {
+    gap: 0;
     padding: 0;
-     
- }   
+  }
 }
-
-
-
-
-

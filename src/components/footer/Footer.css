@@ -1,15 +1,14 @@
-.footer-content{
-   margin-top: auto;
-    padding: 2rem;
-    background-color: var(--light-secondary-color);
+.footer-content {
+  margin-top: auto;
+  padding: 2rem;
+  background-color: var(--light-secondary-color);
 }
 
- .footer-content p {
-    margin-top: 0.5rem;
-  }
-  .footer-content .footer-links ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+.footer-content p {
+  margin-top: 0.5rem;
+}
+.footer-content .footer-links ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

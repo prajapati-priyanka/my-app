@@ -1,7 +1,7 @@
 import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import MockmanEs from "mockman-js";
-import "./App.css"
+import "./App.css";
 
 function App() {
   return (

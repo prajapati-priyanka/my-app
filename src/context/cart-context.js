@@ -62,13 +62,12 @@ const CartProvider = ({ children }) => {
           data,
           config
         );
-        console.log("already in cart..", response);
+
         cartDispatch({
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
       } else {
-        console.log("in else part", products);
         setIsDisabled(true);
         const response = await axios.post(
           "/api/user/cart",
@@ -122,7 +121,7 @@ const CartProvider = ({ children }) => {
         throw new Error("Can't process the request");
       }
     } catch (err) {
-      console.log(err);
+      alert(err);
     } finally {
       setIsDisabled(false);
     }
@@ -147,7 +146,7 @@ const CartProvider = ({ children }) => {
         throw new Error("Can't process the request");
       }
     } catch (err) {
-      console.log(err);
+      alert(err);
     } finally {
       setIsDisabled(false);
     }
