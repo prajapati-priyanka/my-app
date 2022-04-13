@@ -69,8 +69,9 @@ const checkCartStatus = (products, cartItem) => {
           <span className="price-before-discount md-text">₹{priceBeforeDiscount}</span>
           <span className="discount md-text">({discount}% OFF)</span>
         </div>
-        {checkCartStatus(products,cartItem) ? <Link to="/cart" className="link-to-cart"><button className="btn btn-primary">GO TO CART</button></Link> : (
-        <button className="btn btn-primary" disabled={isDisabled} onClick={()=> addToCart(products,setIsDisabled)}>ADD TO CART</button>)}
+        {isSoldOut ? <button className ="btn btn-primary btn-disabled" disabled= {!isDisabled} >ADD TO CART</button> : (checkCartStatus(products,cartItem) ? <Link to="/cart" className="link-to-cart"><button className="btn btn-primary">GO TO CART</button></Link> : (
+        <button className="btn btn-primary" disabled={isDisabled} onClick={()=> addToCart(products,setIsDisabled)}>ADD TO CART</button>))}
+       
        
       </section>
     </div>
