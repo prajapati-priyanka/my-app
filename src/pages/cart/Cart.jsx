@@ -8,7 +8,7 @@ const Cart = ()=>{
     const {cartState, getCartItemCount} = useCart();
     const {cartItem} = cartState;
     return (
-        <div>
+        <>
          <Nav />
          <main>
         <h3 className="page-title text-center lg-text">My Cart({getCartItemCount(cartItem)})</h3>
@@ -29,7 +29,7 @@ const Cart = ()=>{
         </div>
     </main>
     <Footer />
-      </div>    
+      </>    
     )
 }
 export {Cart}
