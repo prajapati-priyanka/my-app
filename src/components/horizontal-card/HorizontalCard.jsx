@@ -7,7 +7,7 @@ import { useCart, useWishList } from "../../context";
 import { useState } from "react";
 
 const HorizontalCard = ({products}) => {
-  const[isDisabled, setIsDisabled] = useState(false);
+  const[isPlusDisabled, setIsPlusDisabled] = useState(false);
   const[isMinusDisabled, setIsMinusDisabled] = useState(false);
 
   const {removeFromCart, incrementQuantity,decrementQuantity} = useCart();
@@ -22,15 +22,14 @@ const HorizontalCard = ({products}) => {
     qty
   } = products;
 
-  console.log("in horizontal cards", products)
+
   const checkItemExistInWishList = (products) =>{
     const itemExist = wishListState.wishListItem.find(item => item._id === products._id);
-    console.log("inCheckItemExist", itemExist)
-
+      
     if(itemExist){
       removeFromCart(products)
     }else{
-      addProductToWishList(products,setIsDisabled);
+      addProductToWishList(products,setIsPlusDisabled);
       removeFromCart(products)
     }
   }
@@ -60,12 +59,12 @@ const HorizontalCard = ({products}) => {
             </span>
           
           <span className="quantity-number md-text ">{qty}</span>
-          <button disabled={isDisabled} onClick={()=> incrementQuantity(products,setIsDisabled)}>
+          <button disabled={isPlusDisabled} onClick={()=> incrementQuantity(products,setIsPlusDisabled)}>
             <FiPlusCircle className="md-text"  />
           </button>
         </div>
         <div className="card-btn">
-          <button className="btn btn-outline-primary" disabled={isDisabled} onClick={()=>{
+          <button className="btn btn-outline-primary" disabled={isPlusDisabled} onClick={()=>{
             checkItemExistInWishList(products);
            
           }}>SAVE TO WISHLIST</button>
@@ -74,7 +73,7 @@ const HorizontalCard = ({products}) => {
       <button className="close-icon"  onClick={()=>removeFromCart(products)}>
         <MdClose
           className="lg-text"
-          title="Delete from Cart"
+          title="Remove from Cart"
          
         />
       </button>
