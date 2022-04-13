@@ -1,9 +1,10 @@
-.footer-content {
-    margin: 4rem 0 0 0;
+.footer-content{
+   margin-top: auto;
     padding: 2rem;
     background-color: var(--light-secondary-color);
-  }
-  .footer-content p {
+}
+
+ .footer-content p {
     margin-top: 0.5rem;
   }
   .footer-content .footer-links ul {
