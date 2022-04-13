@@ -58,3 +58,6 @@
 .link-to-cart .btn{
   width: 100%;
 }
+.btn-disabled{
+ pointer-events: none;
+}
