@@ -40,8 +40,9 @@ const CartProvider = ({ children }) => {
     let flag = false;
     cartState.cartItem.map((item) => {
       if (item._id === products._id) {
-        flag = true;
+        return flag = true;
       }
+      return flag;
     });
     return flag;
   };
@@ -62,12 +63,13 @@ const CartProvider = ({ children }) => {
           data,
           config
         );
-
+      
         cartDispatch({
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
       } else {
+      
         setIsDisabled(true);
         const response = await axios.post(
           "/api/user/cart",
