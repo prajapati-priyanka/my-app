@@ -4,6 +4,8 @@ const CartBill = ({ products }) => {
   const { getCartItemCount } = useCart();
   const { cartItem } = products;
 
+  const cartItemCount = getCartItemCount(cartItem)
+
   const totalBagPrice = cartItem.reduce(
     (acc, curr) => (acc += Number(curr.qty) * Number(curr.priceBeforeDiscount)),
     0
@@ -29,7 +31,7 @@ const CartBill = ({ products }) => {
           <div className="items-price md-text">
             <p className="item-type">
               Price ({getCartItemCount(cartItem)}{" "}
-              {cartItem.length === 1 ? "item" : "items"})
+              {cartItemCount === 1 ? "item" : "items"})
             </p>
             <p className="item-type-price">₹{totalBagPrice}</p>
           </div>
