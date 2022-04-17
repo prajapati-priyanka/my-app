@@ -2,15 +2,14 @@
 
 Pine Apparel is a latest fashion ecommerce website particularly for Women. India's Biggest brand's dresses, tops, Kurta-Set, Sarees etc. are available at our website.
 
+[Live Demo](https://pine-apparel-pqzjpygda-prajapati-priyanka.vercel.app/)
+
 ## Tech Stack
 - reactjs
 - react-router-dom
 - contextAPI
 - reducer
 
-
-## Live Demo
-![ecomm-demo](/assets/ecom-demo.gif)
 
 ## Features
 - [Home](https://pine-apparel-pqzjpygda-prajapati-priyanka.vercel.app/)
