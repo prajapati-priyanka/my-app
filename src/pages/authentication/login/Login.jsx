@@ -1,5 +1,5 @@
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Nav } from "../../../components";
 import { useAuth } from "../../../context";
 import axios from "axios";
