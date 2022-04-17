@@ -3,14 +3,24 @@ import "./Nav.css";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { useCart, useWishList } from "../../context";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useCart, useWishList } from "../../context";
 
 const Nav = () => {
   const { wishListState } = useWishList();
   const { cartState, getCartItemCount } = useCart();
+  const { authDispatch } = useAuth();
+  const navigate = useNavigate();
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
+
+  const logOutHandler = () => {
+    console.log("Inosde Log out handler");
+    navigate("/login");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    authDispatch({ type: "LOGOUT" });
+  };
 
   return (
     <header className="header">
@@ -35,18 +45,31 @@ const Nav = () => {
       <div className="header-links">
         <ul>
           <li>
-            <Link to="/login">
-              <button className="btn btn-primary md-text">Login</button>
-            </Link>
+            {localStorage.getItem("token") ? (
+              <button
+                className="btn btn-primary md-text"
+                onClick={logOutHandler}
+              >
+                LOGOUT
+              </button>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-primary md-text">LOGIN</button>
+              </Link>
+            )}
           </li>
           <li>
             <Link to="/wishlist">
               <div className="icon badge">
                 <MdOutlineFavoriteBorder />
-                {wishListItem.length === 0 ? (
-                  ""
+                {localStorage.getItem("token") ? (
+                  wishListItem.length === 0 ? (
+                    ""
+                  ) : (
+                    <span className="badge-count">{wishListItem.length}</span>
+                  )
                 ) : (
-                  <span className="badge-count">{wishListItem.length}</span>
+                  ""
                 )}
               </div>
             </Link>
@@ -55,12 +78,16 @@ const Nav = () => {
             <Link to="/cart">
               <div className="icon badge">
                 <BsCart />
-                {cartItem.length === 0 ? (
-                  ""
+                {localStorage.getItem("token") ? (
+                  cartItem.length === 0 ? (
+                    ""
+                  ) : (
+                    <span className="badge-count">
+                      {getCartItemCount(cartItem)}
+                    </span>
+                  )
                 ) : (
-                  <span className="badge-count">
-                    {getCartItemCount(cartItem)}
-                  </span>
+                  ""
                 )}
               </div>
             </Link>

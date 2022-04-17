@@ -1,18 +1,10 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { cartReducer } from "../reducer/cart-reducer";
+import { useAuth } from "./auth-context";
 
-const initialState = {
+const cartInitialState = {
   cartItem: [],
-};
-
-const encodedToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxZGU4ZGU2OC04YTljLTQzN2UtYjQ1OS0zYmExMWE4ZmVlYzgiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.xr5Ma2P_rdAfNdlRySy8wgmsrEtfwBXaM_5m2w5xZ84";
-
-const config = {
-  headers: {
-    authorization: encodedToken,
-  },
 };
 
 const CartContext = createContext();
@@ -20,7 +12,17 @@ const CartContext = createContext();
 const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  const [cartState, cartDispatch] = useReducer(cartReducer, initialState);
+  const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState);
+
+  const { authState } = useAuth();
+  const { token } = authState;
+  console.log(token);
+
+  const config = {
+    headers: {
+      authorization: localStorage.getItem("token"),
+    },
+  };
 
   useEffect(() => {
     (async () => {
@@ -31,7 +33,7 @@ const CartProvider = ({ children }) => {
           payload: response.data.cart,
         });
       } catch (err) {
-        alert(err);
+        console.error(err);
       }
     })();
   }, []);
@@ -40,7 +42,7 @@ const CartProvider = ({ children }) => {
     let flag = false;
     cartState.cartItem.map((item) => {
       if (item._id === products._id) {
-        return flag = true;
+        return (flag = true);
       }
       return flag;
     });
@@ -63,13 +65,12 @@ const CartProvider = ({ children }) => {
           data,
           config
         );
-      
+
         cartDispatch({
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
       } else {
-      
         setIsDisabled(true);
         const response = await axios.post(
           "/api/user/cart",
@@ -82,8 +83,8 @@ const CartProvider = ({ children }) => {
           throw new Error("Can't process the request");
         }
       }
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      console.error(err);
     } finally {
       setIsDisabled(false);
     }
@@ -99,8 +100,8 @@ const CartProvider = ({ children }) => {
       } else {
         throw new Error("Can't process the request");
       }
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -123,7 +124,7 @@ const CartProvider = ({ children }) => {
         throw new Error("Can't process the request");
       }
     } catch (err) {
-      alert(err);
+      console.error(err);
     } finally {
       setIsDisabled(false);
     }
@@ -148,7 +149,7 @@ const CartProvider = ({ children }) => {
         throw new Error("Can't process the request");
       }
     } catch (err) {
-      alert(err);
+      console.error(err);
     } finally {
       setIsDisabled(false);
     }

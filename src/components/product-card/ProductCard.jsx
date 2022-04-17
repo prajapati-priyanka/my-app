@@ -1,7 +1,7 @@
 import { MdFavorite } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
-import { useCart, useWishList } from "../../context";
+import { useAuth, useCart, useWishList } from "../../context";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,6 +19,9 @@ const ProductCard = ({ products }) => {
   } = products;
   const { wishListState, addProductToWishList, deleteProductFromWishlist } =
     useWishList();
+
+  const { authState } = useAuth();
+  console.log(authState);
   const { wishListItem } = wishListState;
 
   const { cartState, addToCart } = useCart();
@@ -44,7 +47,11 @@ const ProductCard = ({ products }) => {
             className="card-floating-icon"
             onClick={() => deleteProductFromWishlist(products)}
           >
-            <MdFavorite title="Added To WishList" />
+            {localStorage.getItem("token") ? (
+              <MdFavorite title="Added To WishList" />
+            ) : (
+              <MdFavorite className="wishlist-icon" title="Added To WishList" />
+            )}
           </button>
         </span>
       ) : (
@@ -89,7 +96,9 @@ const ProductCard = ({ products }) => {
           </button>
         ) : checkCartStatus(products, cartItem) ? (
           <Link to="/cart" className="link-to-cart">
-            <button className="btn btn-primary">GO TO CART</button>
+            <button className="btn btn-primary">
+              {localStorage.getItem("token") ? "GO TO CART" : "ADD TO CART"}
+            </button>
           </Link>
         ) : (
           <button
