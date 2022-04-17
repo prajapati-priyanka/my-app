@@ -7,6 +7,7 @@ import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../../context";
+import toast from "react-hot-toast"
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
@@ -51,7 +52,7 @@ const SignUp = () => {
             type: "SIGNUP",
             payload: { user: createdUser, token: token },
           });
-          alert("Your Account Is MAde");
+          toast("Your data has been saved!", {icon:"✔"});
           navigate("/login");
         } else if (response.status === 422) {
           throw new Error("This User Already Exist!!");
