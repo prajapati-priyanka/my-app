@@ -82,7 +82,7 @@ const ProductCard = ({ products }) => {
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
           <span className="price-after-discount md-text">₹{priceAfterDiscount}</span>
-=         <span className="price-before-discount md-text">
+         <span className="price-before-discount md-text">
             ₹{priceBeforeDiscount}
           </span>
           <span className="discount md-text">({discount}% OFF)</span>
