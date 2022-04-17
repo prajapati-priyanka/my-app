@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { wishListReducer } from "../reducer/wishList-reducer";
-import { useAuth } from "./auth-context";
+
 
 const wishListInitialState = {
   wishListItem: [],
@@ -15,8 +15,6 @@ const WishListProvider = ({ children }) => {
     wishListInitialState
   );
 
-  const { authState } = useAuth();
-  const { token } = authState;
 
   const config = {
     headers: {
