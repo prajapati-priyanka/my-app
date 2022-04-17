@@ -1,6 +1,9 @@
 .card {
   margin: 0;
 }
+.ecommerce-card {
+  width: 19rem;
+}
 .card-with-badge .card-badge {
   position: absolute;
   left: -1px;
@@ -47,4 +50,14 @@
 }
 .rating-badge .rating-container .rating-number {
   padding-right: 0.5rem;
+}
+
+.link-to-cart {
+  padding: 0;
+}
+.link-to-cart .btn {
+  width: 100%;
+}
+.btn-disabled {
+  pointer-events: none;
 }

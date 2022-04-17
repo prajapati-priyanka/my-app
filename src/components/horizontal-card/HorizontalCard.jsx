@@ -1,8 +1,17 @@
-import { MdAddCircleOutline } from "react-icons/md";
+import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
 import "./HorizontalCard.css";
+import { useCart, useWishList } from "../../context";
+import { useState } from "react";
 
-const HorizontalCard = (props) => {
+const HorizontalCard = ({ products }) => {
+  const [isPlusDisabled, setIsPlusDisabled] = useState(false);
+  const [isMinusDisabled, setIsMinusDisabled] = useState(false);
+
+  const { removeFromCart, incrementQuantity, decrementQuantity } = useCart();
+  const { addProductToWishList, wishListState } = useWishList();
   const {
     image,
     title,
@@ -10,10 +19,24 @@ const HorizontalCard = (props) => {
     priceAfterDiscount,
     priceBeforeDiscount,
     discount,
-  } = props;
+    qty,
+  } = products;
+
+  const checkItemExistInWishList = (products) => {
+    const itemExist = wishListState.wishListItem.find(
+      (item) => item._id === products._id
+    );
+
+    if (itemExist) {
+      removeFromCart(products);
+    } else {
+      addProductToWishList(products, setIsPlusDisabled);
+      removeFromCart(products);
+    }
+  };
 
   return (
-    <div className="card card-horizontal card-shadow">
+    <div className="card card-horizontal card-with-dismiss card-shadow">
       <figure className="card-header">
         <img src={image} className="card-img" alt={subtitle} />
       </figure>
@@ -23,28 +46,53 @@ const HorizontalCard = (props) => {
         <p className="card-subtitle md-text">{subtitle}</p>
         <div className="card-price">
           <span className="price-after-discount md-text">
-            {priceAfterDiscount}
+            ₹{priceAfterDiscount}
           </span>
           <span className="price-before-discount md-text">
-            {priceBeforeDiscount}
+            ₹{priceBeforeDiscount}
           </span>
-          <span className="discount md-text">{discount}</span>
+          <span className="discount md-text">({discount}% OFF)</span>
         </div>
         <div className="card-quantity">
-          <span className="product-quantity md-text">Quantity:</span>
-          <button>
-            <FiMinusCircle className="md-text" />
-          </button>
-          <input type="number" value="1" className="text-center" />
-          <button>
-            <MdAddCircleOutline className="md-text" />
+          <span className="product-quantity md-text">
+            Quantity:{" "}
+            {qty === 1 ? (
+              <button onClick={() => removeFromCart(products)}>
+                <FiTrash2 className="md-text" />
+              </button>
+            ) : (
+              <button
+                disabled={isMinusDisabled}
+                onClick={() => decrementQuantity(products, setIsMinusDisabled)}
+              >
+                <FiMinusCircle className="md-text" />
+              </button>
+            )}
+          </span>
+
+          <span className="quantity-number md-text ">{qty}</span>
+          <button
+            disabled={isPlusDisabled}
+            onClick={() => incrementQuantity(products, setIsPlusDisabled)}
+          >
+            <FiPlusCircle className="md-text" />
           </button>
         </div>
         <div className="card-btn">
-          <button className="btn btn-primary">REMOVE FROM CART</button>
-          <button className="btn btn-outline-primary">SAVE TO WISHLIST</button>
+          <button
+            className="btn btn-primary"
+            disabled={isPlusDisabled}
+            onClick={() => {
+              checkItemExistInWishList(products);
+            }}
+          >
+            SAVE TO WISHLIST
+          </button>
         </div>
       </section>
+      <button className="close-icon" onClick={() => removeFromCart(products)}>
+        <MdClose className="lg-text" title="Remove from Cart" />
+      </button>
     </div>
   );
 };

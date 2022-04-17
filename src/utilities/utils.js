@@ -1,6 +1,6 @@
 const sortPrice = (productList, sortBy) => {
-    console.log("from context",productList,sortBy)
-        let updatedList = [...productList];
+
+    let updatedList = [...productList];
        
         if (sortBy === "HIGH_TO_LOW") {
             console.log("updatedList", updatedList.sort((a, b) => b.price- a.price))

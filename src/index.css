@@ -12,10 +12,9 @@
   --secondary-color: #ff723f;
   --light-secondary-color: #ff723f30;
   --text-color: #282c3f;
-  --ratingLessThanThree: rgb(212, 210, 77)
+  --ratingLessThanThree: rgb(212, 210, 77);
 }
 
 body {
   color: var(--text-color);
 }
-
