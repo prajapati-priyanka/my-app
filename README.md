@@ -1,4 +1,7 @@
-# Pine Apparel
+# Pine Apparel 
+
+![Forks](https://img.shields.io/github/forks/prajapati-priyanka/my-app)
+![Stars](https://img.shields.io/github/stars/prajapati-priyanka/my-app)
 
 Pine Apparel is a latest fashion ecommerce website particularly for Women. India's Biggest brand's dresses, tops, Kurta-Set, Sarees etc. are available at our website.
 
