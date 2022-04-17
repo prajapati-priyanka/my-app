@@ -9,27 +9,26 @@ import { useAuth, useCart, useWishList } from "../../context";
 const Nav = () => {
   const { wishListState } = useWishList();
   const { cartState, getCartItemCount } = useCart();
-  const {authState, authDispatch} = useAuth();
+  const { authState, authDispatch } = useAuth();
   const navigate = useNavigate();
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
 
- 
-  const wishListRouteHandler = ()=>{
-    authState.token ? navigate("/wishlist") : navigate("/login")
-  }
-  
-  const cartRouteHandler = ()=>{
-    authState.token ? navigate("/cart") : navigate("/login")
-  }
+  const wishListRouteHandler = () => {
+    authState.token ? navigate("/wishlist") : navigate("/login");
+  };
 
-  const logOutHandler = ()=>{
-    console.log("Inosde Log out handler")
-     navigate("/signout");
-     localStorage.removeItem("user");
-     localStorage.removeItem("token");
-     authDispatch({type:"LOGOUT"})
-  }
+  const cartRouteHandler = () => {
+    authState.token ? navigate("/cart") : navigate("/login");
+  };
+
+  const logOutHandler = () => {
+    console.log("Inosde Log out handler");
+    navigate("/login");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    authDispatch({ type: "LOGOUT" });
+  };
 
   return (
     <header className="header">
@@ -54,43 +53,42 @@ const Nav = () => {
       <div className="header-links">
         <ul>
           <li>
-            { localStorage.getItem("token") ? (<button className="btn btn-primary md-text"  onClick = {logOutHandler}>LOGOUT</button>) : ( <Link to="/login">
-            <button className="btn btn-primary md-text">LOGIN</button>
-          </Link>)
-          
-          }
-            
+            {localStorage.getItem("token") ? (
+              <button
+                className="btn btn-primary md-text"
+                onClick={logOutHandler}
+              >
+                LOGOUT
+              </button>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-primary md-text">LOGIN</button>
+              </Link>
+            )}
           </li>
           <li>
-          
-              <div className="icon badge" onClick={wishListRouteHandler}>
-                <MdOutlineFavoriteBorder />
-                {wishListItem.length === 0 ? (
-                  ""
-                ) : (
-                  <span className="badge-count">{wishListItem.length}</span>
-                )}
-              </div>
-          
+            <div className="icon badge" onClick={wishListRouteHandler}>
+              <MdOutlineFavoriteBorder />
+              {localStorage.getItem("token") ? (
+                <span className="badge-count">{wishListItem.length}</span>
+              ) : (
+                ""
+              )}
+            </div>
           </li>
           <li>
-            
-              <div className="icon badge" onClick={cartRouteHandler}>
-                <BsCart />
-                {cartItem.length === 0 ? (
-                  ""
-                ) : (
-                  <span className="badge-count">
-                    {getCartItemCount(cartItem)}
-                  </span>
-                )}
-              </div>
-      
+            <div className="icon badge" onClick={cartRouteHandler}>
+              <BsCart />
+              {localStorage.getItem("token") ? (
+                <span className="badge-count">{cartItem.length}</span>
+              ) : (
+                ""
+              )}
+            </div>
           </li>
         </ul>
       </div>
     </header>
-    
   );
 };
 
