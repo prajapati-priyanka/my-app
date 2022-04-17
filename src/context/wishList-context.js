@@ -34,7 +34,7 @@ const WishListProvider = ({ children }) => {
         console.error(err);
       }
     })();
-  }, []);
+  });
 
   const addProductToWishList = async (products, setIsDisabled) => {
     try {

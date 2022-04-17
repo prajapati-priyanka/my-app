@@ -33,7 +33,7 @@ const CartProvider = ({ children }) => {
         console.error(err);
       }
     })();
-  }, []);
+  });
 
   const itemExistInCart = (products) => {
     let flag = false;
