@@ -1,6 +1,6 @@
 import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut } from "./pages";
 import { Routes, Route } from "react-router-dom";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import { RequiresAuth } from "./router/RequiresAuth";
 import MockmanEs from "mockman-js";
 import "./App.css";
@@ -15,10 +15,19 @@ function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="signout" element={<SignOut />} />
         <Route path="mock" element={<MockmanEs />} />
-        <Route path="/cart" element={<RequiresAuth children={<Cart/>}></RequiresAuth>}/>
-        <Route path="/wishlist" element={<RequiresAuth children={<Wishlist/>}></RequiresAuth>}/>
+        <Route
+          path="/cart"
+          element={<RequiresAuth children={<Cart />}></RequiresAuth>}
+        />
+        <Route
+          path="/wishlist"
+          element={<RequiresAuth children={<Wishlist />}></RequiresAuth>}
+        />
       </Routes>
-      <Toaster position="bottom-right" toastOptions={{className:"showToast", duration: 3000}} />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{ className: "showToast", duration: 3000 }}
+      />
     </div>
   );
 }
