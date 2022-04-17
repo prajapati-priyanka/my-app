@@ -136,8 +136,8 @@ const SignUp = () => {
                 name="confirmPassword"
                 value={userData.confirmPassword}
                 onChange={(e) => {
-                  onChangeHandler(e);
-                  checkPassword(e.target.value);
+                onChangeHandler(e);
+                checkPassword(e.target.value);
                 }}
               />
               <span
