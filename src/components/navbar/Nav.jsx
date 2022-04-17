@@ -70,7 +70,11 @@ const Nav = () => {
             <div className="icon badge" onClick={wishListRouteHandler}>
               <MdOutlineFavoriteBorder />
               {localStorage.getItem("token") ? (
-                <span className="badge-count">{wishListItem.length}</span>
+                wishListItem.length === 0 ? (
+                  ""
+                ) : (
+                  <span className="badge-count">{wishListItem.length}</span>
+                )
               ) : (
                 ""
               )}
@@ -80,7 +84,13 @@ const Nav = () => {
             <div className="icon badge" onClick={cartRouteHandler}>
               <BsCart />
               {localStorage.getItem("token") ? (
-                <span className="badge-count">{cartItem.length}</span>
+                cartItem.length === 0 ? (
+                  ""
+                ) : (
+                  <span className="badge-count">
+                    {getCartItemCount(cartItem)}
+                  </span>
+                )
               ) : (
                 ""
               )}
