@@ -14,14 +14,6 @@ const Nav = () => {
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
 
-  const wishListRouteHandler = () => {
-    authState.token ? navigate("/wishlist") : navigate("/login");
-  };
-
-  const cartRouteHandler = () => {
-    authState.token ? navigate("/cart") : navigate("/login");
-  };
-
   const logOutHandler = () => {
     console.log("Inosde Log out handler");
     navigate("/login");
@@ -67,34 +59,38 @@ const Nav = () => {
             )}
           </li>
           <li>
-            <div className="icon badge" onClick={wishListRouteHandler}>
-              <MdOutlineFavoriteBorder />
-              {localStorage.getItem("token") ? (
-                wishListItem.length === 0 ? (
-                  ""
+            <Link to="/wishlist">
+              <div className="icon badge">
+                <MdOutlineFavoriteBorder />
+                {localStorage.getItem("token") ? (
+                  wishListItem.length === 0 ? (
+                    ""
+                  ) : (
+                    <span className="badge-count">{wishListItem.length}</span>
+                  )
                 ) : (
-                  <span className="badge-count">{wishListItem.length}</span>
-                )
-              ) : (
-                ""
-              )}
-            </div>
+                  ""
+                )}
+              </div>
+            </Link>
           </li>
           <li>
-            <div className="icon badge" onClick={cartRouteHandler}>
-              <BsCart />
-              {localStorage.getItem("token") ? (
-                cartItem.length === 0 ? (
-                  ""
+            <Link to="/cart">
+              <div className="icon badge">
+                <BsCart />
+                {localStorage.getItem("token") ? (
+                  cartItem.length === 0 ? (
+                    ""
+                  ) : (
+                    <span className="badge-count">
+                      {getCartItemCount(cartItem)}
+                    </span>
+                  )
                 ) : (
-                  <span className="badge-count">
-                    {getCartItemCount(cartItem)}
-                  </span>
-                )
-              ) : (
-                ""
-              )}
-            </div>
+                  ""
+                )}
+              </div>
+            </Link>
           </li>
         </ul>
       </div>
