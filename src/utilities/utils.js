@@ -1,15 +1,17 @@
 const sortPrice = (productList, sortBy) => {
+console.log("productList", productList)
 
     let updatedList = [...productList];
        
         if (sortBy === "HIGH_TO_LOW") {
-            console.log("updatedList", updatedList.sort((a, b) => b.price- a.price))
-          return updatedList.sort((a, b) => b.price - a.price);
+            // console.log("updatedList", updatedList.sort((a, b) => b.price- a.price))
+          return updatedList.sort((a, b) => b.priceAfterDiscount - a.priceAfterDiscount);
         }
         if (sortBy === "LOW_TO_HIGH") {
-          return updatedList.sort((a, b) => a.price - b.price);
+          return updatedList.sort((a, b) => a.priceAfterDiscount - b.priceAfterDiscount);
         }
        
+        console.log("updated list", updatedList)
         return updatedList;
  };
 
@@ -20,7 +22,7 @@ const filteredProduct = (productList, filterState)=>{
 const filterPrice = (productList, priceValue)=>{
 let updatedList = [...productList]
 if(priceValue){
-    return updatedList.filter(item => Number(item.price) <= Number(priceValue))
+    return updatedList.filter(item => Number(item.priceAfterDiscount) <= Number(priceValue))
 }
 return updatedList
     
