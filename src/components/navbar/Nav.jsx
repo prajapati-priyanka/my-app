@@ -9,7 +9,7 @@ import { useAuth, useCart, useWishList } from "../../context";
 const Nav = () => {
   const { wishListState } = useWishList();
   const { cartState, getCartItemCount } = useCart();
-  const { authState, authDispatch } = useAuth();
+  const { authDispatch } = useAuth();
   const navigate = useNavigate();
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
