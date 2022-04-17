@@ -1,20 +1,25 @@
-.form-login{
-    max-width: 50rem;
+.form-login {
+  max-width: 50rem;
 }
 
-.form-login .input-pass{
-    position: relative;
-    display: flex;
-    align-items: center;
+.form-login .input-pass {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.form-login .input-pass .eye-icon{
-    position: absolute;
-  right: 0.6rem;
-  top: 0.8rem;
+.form-login .input-pass .eye-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  cursor: pointer;
 }
 
-.form-login .form-signup label::after{
-    content: "*";
-    color: var(--primary-color);
+.form-login .form-signup label::after {
+  content: "*";
+  color: var(--primary-color);
+}
+
+.passMatch-error {
+  color: red;
 }
