@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { wishListReducer } from "../reducer/wishList-reducer";
-
+import { useAuth } from "./auth-context";
 
 const wishListInitialState = {
   wishListItem: [],
@@ -15,7 +15,10 @@ const WishListProvider = ({ children }) => {
     wishListInitialState
   );
 
+  const { authState } = useAuth();
+  const { token } = authState;
 
+  console.log("inWishListContext", token);
   const config = {
     headers: {
       authorization: JSON.parse(localStorage.getItem("token")),
@@ -34,7 +37,7 @@ const WishListProvider = ({ children }) => {
         console.error(err);
       }
     })();
-  });
+  }, []);
 
   const addProductToWishList = async (products, setIsDisabled) => {
     try {

@@ -1,7 +1,7 @@
 import { MdFavorite } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import "./ProductCard.css";
-import { useCart, useWishList } from "../../context";
+import { useAuth, useCart, useWishList } from "../../context";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,13 +19,14 @@ const ProductCard = ({ products }) => {
   } = products;
   const { wishListState, addProductToWishList, deleteProductFromWishlist } =
     useWishList();
+
+  const { authState } = useAuth();
+  console.log(authState);
   const { wishListItem } = wishListState;
 
   const { cartState, addToCart } = useCart();
   const { cartItem } = cartState;
-  
 
-  
   const checkWishlistStatus = (products, wishListItem) => {
     return wishListItem.some((item) => item._id === products._id);
   };
