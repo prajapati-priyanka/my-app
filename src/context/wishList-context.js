@@ -1,19 +1,13 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { wishListReducer } from "../reducer/wishList-reducer";
+import { useAuth } from "./auth-context";
 
 const wishListInitialState = {
   wishListItem: [],
 };
 
-const encodedToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxZGU4ZGU2OC04YTljLTQzN2UtYjQ1OS0zYmExMWE4ZmVlYzgiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.xr5Ma2P_rdAfNdlRySy8wgmsrEtfwBXaM_5m2w5xZ84";
 
-const config = {
-  headers: {
-    authorization: encodedToken,
-  },
-};
 const WishListContext = createContext();
 
 const WishListProvider = ({ children }) => {
@@ -21,6 +15,15 @@ const WishListProvider = ({ children }) => {
     wishListReducer,
     wishListInitialState
   );
+
+  const {authState} = useAuth();
+  const {token} = authState
+
+  const config = {
+    headers: {
+      authorization: JSON.parse(localStorage.getItem("token")),
+    },
+  };
 
   useEffect(() => {
     (async () => {
@@ -31,7 +34,7 @@ const WishListProvider = ({ children }) => {
           payload: response.data.wishlist,
         });
       } catch (err) {
-        alert(err);
+        console.error(err);
       }
     })();
   }, []);
@@ -54,7 +57,7 @@ const WishListProvider = ({ children }) => {
         throw new Error("Couldn't complete the request");
       }
     } catch (err) {
-      alert(err);
+      console.error(err);
     } finally {
       setIsDisabled(false);
     }
@@ -76,7 +79,7 @@ const WishListProvider = ({ children }) => {
         throw new Error("Couldn't complete the request");
       }
     } catch (err) {
-      alert(err);
+      console.error(err);
     }
   };
 
