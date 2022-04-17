@@ -7,7 +7,6 @@ const wishListInitialState = {
   wishListItem: [],
 };
 
-
 const WishListContext = createContext();
 
 const WishListProvider = ({ children }) => {
@@ -16,8 +15,8 @@ const WishListProvider = ({ children }) => {
     wishListInitialState
   );
 
-  const {authState} = useAuth();
-  const {token} = authState
+  const { authState } = useAuth();
+  const { token } = authState;
 
   const config = {
     headers: {

@@ -7,7 +7,7 @@ import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../../context";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
@@ -31,16 +31,22 @@ const SignUp = () => {
   };
 
   const checkPassword = (confirmPassword) => {
-    if(userData.password === confirmPassword){
-         setError('');
-    }else {
+    if (userData.password === confirmPassword) {
+      setError("");
+    } else {
       setError("Password doesn't Match");
     }
-  }
+  };
 
   const signUpHandler = async (e) => {
     e.preventDefault();
-    if(userData.firstName !=="" && userData.lastName !=="" && userData.email !=="" && userData.password !== "", userData.confirmPassword !==""){
+    if (
+      (userData.firstName !== "" &&
+        userData.lastName !== "" &&
+        userData.email !== "" &&
+        userData.password !== "",
+      userData.confirmPassword !== "")
+    ) {
       try {
         const response = await axios.post("/api/auth/signup", userData);
         console.log("in SIgnupHAndler", response);
@@ -52,7 +58,7 @@ const SignUp = () => {
             type: "SIGNUP",
             payload: { user: createdUser, token: token },
           });
-          toast("Your data has been saved!", {icon:"✔"});
+          toast("Your data has been saved!", { icon: "✔" });
           navigate("/login");
         } else if (response.status === 422) {
           throw new Error("This User Already Exist!!");
@@ -62,10 +68,9 @@ const SignUp = () => {
       } catch (err) {
         console.error(err);
       }
-    }else{
-      alert("All input fields must be filled!!")
+    } else {
+      alert("All input fields must be filled!!");
     }
-   
   };
 
   return (
@@ -108,21 +113,24 @@ const SignUp = () => {
             <label htmlFor="pass">Password</label>
             <span className="input-pass">
               <input
-                type= {passwordShow ? "text" : "password"}
+                type={passwordShow ? "text" : "password"}
                 id="pass"
                 placeholder="*******"
                 name="password"
                 value={userData.password}
                 onChange={(e) => onChangeHandler(e)}
               />
-              <span className="eye-icon" onClick={()=>setPasswordShow(!passwordShow)}>
-               {passwordShow ?  <FaEye /> : <FaEyeSlash /> } 
+              <span
+                className="eye-icon"
+                onClick={() => setPasswordShow(!passwordShow)}
+              >
+                {passwordShow ? <FaEye /> : <FaEyeSlash />}
               </span>
             </span>
             <label htmlFor="confirm-pass">Confirm Password:</label>
             <span className="input-pass">
               <input
-                type= {confirmPasswordShow ? "text" : "password"}
+                type={confirmPasswordShow ? "text" : "password"}
                 id="confirm-pass"
                 placeholder="*******"
                 name="confirmPassword"
@@ -132,11 +140,14 @@ const SignUp = () => {
                   checkPassword(e.target.value);
                 }}
               />
-              <span className="eye-icon" onClick={()=>setConfirmPasswordShow(!confirmPasswordShow)}>
-              {confirmPasswordShow ?  <FaEye /> : <FaEyeSlash /> } 
+              <span
+                className="eye-icon"
+                onClick={() => setConfirmPasswordShow(!confirmPasswordShow)}
+              >
+                {confirmPasswordShow ? <FaEye /> : <FaEyeSlash />}
               </span>
             </span>
-            <div className= "passMatch-error">{error}</div>
+            <div className="passMatch-error">{error}</div>
             <div className="user-control">
               <input type="checkbox" className="input-check" />
               <label>I accept all Terms & Conditions</label>

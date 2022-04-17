@@ -8,7 +8,7 @@
   min-height: 100vh;
   height: 100%;
 }
-.App .showToast{
+.App .showToast {
   background-color: var(--green);
   width: 50rem;
   font-size: 2rem;

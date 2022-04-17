@@ -53,7 +53,7 @@ const Login = () => {
             type: "LOGIN",
             payload: { user: foundUser, token: token },
           });
-          toast("You are Succesfully logged in",  {icon:"✔"});
+          toast("You are Succesfully logged in", { icon: "✔" });
           navigate("/product");
         } else {
           throw new Error("Can't process the request, Try Again later");
@@ -99,7 +99,9 @@ const Login = () => {
                 Forgot your Password{" "}
               </Link>
             </div>
-            <button className= "btn-guest md-text" onClick={clickHandler}>Add Guest Credentials</button>
+            <button className="btn-guest md-text" onClick={clickHandler}>
+              Add Guest Credentials
+            </button>
             <button className="btn btn-primary md-text">LOGIN</button>
             <p className="new-account text-center">
               <Link to="/signup">
