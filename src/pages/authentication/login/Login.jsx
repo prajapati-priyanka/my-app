@@ -5,6 +5,7 @@ import { useAuth } from "../../../context";
 import axios from "axios";
 import "./Login.css";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Login = () => {
             type: "LOGIN",
             payload: { user: foundUser, token: token },
           });
-          alert("You are logged IN");
+          toast("You are Succesfully logged in",  {icon:"✔"});
           navigate("/product");
         } else {
           throw new Error("Can't process the request, Try Again later");
@@ -98,7 +99,7 @@ const Login = () => {
                 Forgot your Password{" "}
               </Link>
             </div>
-            <button onClick={clickHandler}>Add Guest Credentials</button>
+            <button className= "btn-guest md-text" onClick={clickHandler}>Add Guest Credentials</button>
             <button className="btn btn-primary md-text">LOGIN</button>
             <p className="new-account text-center">
               <Link to="/signup">
