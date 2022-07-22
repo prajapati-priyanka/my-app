@@ -15,7 +15,7 @@ const Nav = () => {
   const { cartItem } = cartState;
 
   const logOutHandler = () => {
-    console.log("Inosde Log out handler");
+   
     navigate("/login");
     localStorage.removeItem("user");
     localStorage.removeItem("token");
