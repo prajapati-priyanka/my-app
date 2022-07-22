@@ -21,7 +21,7 @@ const ProductCard = ({ products }) => {
     useWishList();
 
   const { authState } = useAuth();
-  console.log(authState);
+
   const { wishListItem } = wishListState;
 
   const { cartState, addToCart } = useCart();
