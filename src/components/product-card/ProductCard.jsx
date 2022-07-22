@@ -21,7 +21,7 @@ const ProductCard = ({ products }) => {
     useWishList();
 
   const { authState } = useAuth();
-
+  const token = authState.token || localStorage.getItem("token");
   const { wishListItem } = wishListState;
 
   const { cartState, addToCart } = useCart();
@@ -47,7 +47,7 @@ const ProductCard = ({ products }) => {
             className="card-floating-icon"
             onClick={() => deleteProductFromWishlist(products)}
           >
-            {localStorage.getItem("token") ? (
+            {token ? (
               <MdFavorite title="Added To WishList" />
             ) : (
               <MdFavorite className="wishlist-icon" title="Added To WishList" />
@@ -97,7 +97,7 @@ const ProductCard = ({ products }) => {
         ) : checkCartStatus(products, cartItem) ? (
           <Link to="/cart" className="link-to-cart">
             <button className="btn btn-primary">
-              {localStorage.getItem("token") ? "GO TO CART" : "ADD TO CART"}
+             { token ? "GO TO CART" : "ADD TO CART"}
             </button>
           </Link>
         ) : (

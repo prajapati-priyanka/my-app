@@ -16,19 +16,23 @@ const WishListProvider = ({ children }) => {
   );
 
   const { authState } = useAuth();
-  const { token } = authState;
+  const token = authState.token || localStorage.getItem("token");
 
-  console.log("inWishListContext", token);
-  const config = {
-    headers: {
-      authorization: JSON.parse(localStorage.getItem("token")),
-    },
-  };
+
+  // const config = {
+  //   headers: {
+  //     authorization: token,
+  //   },
+  // };
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/user/wishlist", config);
+        const response = await axios.get("/api/user/wishlist", {
+          headers: {
+            authorization: token,
+          },
+        });
         wishListDispatch({
           type: "LOAD_DATA",
           payload: response.data.wishlist,
@@ -37,7 +41,7 @@ const WishListProvider = ({ children }) => {
         console.error(err);
       }
     })();
-  }, []);
+  }, [token]);
 
   const addProductToWishList = async (products, setIsDisabled) => {
     try {
@@ -45,7 +49,11 @@ const WishListProvider = ({ children }) => {
       const response = await axios.post(
         "/api/user/wishlist",
         { product: products },
-        config
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
 
       if (response.status === 201) {
@@ -67,7 +75,11 @@ const WishListProvider = ({ children }) => {
     try {
       const response = await axios.delete(
         `/api/user/wishlist/${products._id}`,
-        config
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
 
       if (response.status === 200) {

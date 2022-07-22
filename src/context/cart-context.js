@@ -15,19 +15,22 @@ const CartProvider = ({ children }) => {
   const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState);
 
   const { authState } = useAuth();
-  const { token } = authState;
-  console.log(token);
+  const token = authState.token || localStorage.getItem("token");
 
-  const config = {
-    headers: {
-      authorization: localStorage.getItem("token"),
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     authorization: token,
+  //   },
+  // };
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/user/cart", config);
+        const response = await axios.get("/api/user/cart", {
+          headers: {
+            authorization: token,
+          },
+        });
         cartDispatch({
           type: "LOAD_DATA",
           payload: response.data.cart,
@@ -36,7 +39,7 @@ const CartProvider = ({ children }) => {
         console.error(err);
       }
     })();
-  }, []);
+  }, [token]);
 
   const itemExistInCart = (products) => {
     let flag = false;
@@ -63,7 +66,11 @@ const CartProvider = ({ children }) => {
         const response = await axios.post(
           `/api/user/cart/${products._id}`,
           data,
-          config
+          {
+            headers: {
+              authorization: token,
+            },
+          }
         );
 
         cartDispatch({
@@ -75,7 +82,11 @@ const CartProvider = ({ children }) => {
         const response = await axios.post(
           "/api/user/cart",
           { product: products },
-          config
+          {
+            headers: {
+              authorization: token,
+            },
+          }
         );
         if (response.status === 201) {
           cartDispatch({ type: "ADD_TO_CART", payload: response.data.cart });
@@ -93,7 +104,11 @@ const CartProvider = ({ children }) => {
     try {
       const response = await axios.delete(
         `/api/user/cart/${products._id}`,
-        config
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
       if (response.status === 200) {
         cartDispatch({ type: "REMOVE_FROM_CART", payload: response.data.cart });
@@ -113,7 +128,11 @@ const CartProvider = ({ children }) => {
         {
           action: { type: "increment" },
         },
-        config
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
       if (response.status === 200) {
         cartDispatch({
@@ -138,7 +157,11 @@ const CartProvider = ({ children }) => {
         {
           action: { type: "decrement" },
         },
-        config
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
       if (response.status === 200) {
         cartDispatch({
