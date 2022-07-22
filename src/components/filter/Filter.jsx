@@ -4,7 +4,7 @@ import "./Filter.css";
 const Filter = () => {
   const { filterState, filterDispatch } = useProduct();
 
-  console.log("In Filter", filterState, filterDispatch);
+ 
 
   const categoryClickHandler = (event) => {
     let checkedCategory = event.target.checked;
