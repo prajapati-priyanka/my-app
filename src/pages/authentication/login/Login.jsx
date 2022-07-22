@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     setUser(guestData);
   };
-  console.log("afterClickHandler", user);
+
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ const Login = () => {
           password: user.password,
         });
 
-        console.log("in Login Page", response);
+   
 
         const { status } = response;
         const { encodedToken: token } = response.data;

@@ -1,5 +1,4 @@
 const authReducer = (state, action) => {
-  console.log(state, action, "in auth reducer");
 
   switch (action.type) {
     case "LOGIN":
