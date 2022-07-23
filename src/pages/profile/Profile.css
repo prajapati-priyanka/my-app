@@ -1,0 +1,42 @@
+.profile-page{
+    width: 40%;
+    margin: 0 auto 2rem;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+}
+
+.profile-tabs {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.tab {
+    flex: 1;
+    cursor: pointer;
+    border-width: 0;
+    background-color: white;
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 0.8rem 1rem;
+    border-radius: 0;
+}
+
+
+@media screen and (max-width: 920px){
+    .profile-page {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .profile-page {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .profile-page {
+        width: 95%;
+    }
+}
+
