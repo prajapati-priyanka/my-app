@@ -1,4 +1,4 @@
-import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut } from "./pages";
+import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut, Profile } from "./pages";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { RequiresAuth } from "./router/RequiresAuth";
@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
@@ -27,7 +27,9 @@ function App() {
       <Toaster
         position="bottom-right"
         toastOptions={{ className: "showToast", duration: 3000 }}
-      />
+      /> */}
+
+      <Profile />
     </div>
   );
 }
