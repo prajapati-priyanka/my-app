@@ -57,9 +57,24 @@ export function makeServer({ environment = "development" } = {}) {
       });
 
       users.forEach((item) =>
-        server.create("user", { ...item, cart: [], wishlist: [] })
+        server.create("user", {
+          ...item,
+          cart: [],
+          wishlist: [],
+          address: [
+            {
+              _id: uuid(),
+              name: "Guest User",
+              street: "Flat No. 1D, MA Road, Rajendranagar",
+              city: "Indore",
+              state: "Madhya Pradesh",
+              country: "India",
+              zipCode: "781003",
+              mobile: "8839579485",
+            },
+          ]
+        })
       );
-
       categories.forEach((item) => server.create("category", { ...item }));
     },
 
@@ -93,6 +108,13 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
+
+         // address routes (private)
+         this.get("/user/address", getAddressHandler.bind(this));
+         this.post("/user/address", addAddressHandler.bind(this));
+         this.post("/user/address/:addressId", updateAddressHandler.bind(this));
+         this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
+
     },
   });
 }
