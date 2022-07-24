@@ -1,8 +1,11 @@
 import "./Address.css";
 import { GrAdd } from "react-icons/gr";
 import { useAuth } from "../../context";
+import { useEffect } from "react";
+import { getAddressesHandler, removeAddressHandler } from "../../utilities";
 
-const Address = ({ setShowAddressModal }) => {
+
+const Address = ({ setShowAddressModal, setEditAddress }) => {
   const {
     authState: { token, addresses },
     authDispatch,
@@ -13,11 +16,14 @@ const Address = ({ setShowAddressModal }) => {
     setShowAddressModal(true);
   };
 
+  const addNewAddress = () => {
+    setEditAddress(null);
+    setShowAddressModal(true);
+}
+
   useEffect(() => getAddressesHandler(token, authDispatch), []);
 
-  const addNewAddress = () => {
-    setShowAddressModal(true);
-  };
+
   return (
     <>
     {addresses ? (  <div className="address-container">
@@ -33,11 +39,11 @@ const Address = ({ setShowAddressModal }) => {
           <div className="address-action-btns">
             <button
               className="btn btn-solid-primary btn-edit"
-              onClick={() => setShowAddressModal(true)}
+              onClick={() => updateAddress(item)}
             >
               Edit
             </button>
-            <button className="btn btn-outline-primary btn-remove">
+            <button className="btn btn-outline-primary btn-remove"   onClick={() => removeAddressHandler(item._id, token, authDispatch)}>
               Remove
             </button>
           </div>
