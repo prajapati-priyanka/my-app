@@ -1,0 +1,1 @@
+export {addNewAddressHandler} from "./addressHandlers/addNewAddressHandler";
