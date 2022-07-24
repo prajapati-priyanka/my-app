@@ -1,9 +1,10 @@
-import { useContext, createContext, useReducer, useEffect } from "react";
+import { useContext, createContext, useReducer } from "react";
 import { authReducer } from "../reducer/auth-reducer";
 
 const initialState = {
   user: "",
   token: "",
+  addresses: []
 };
 
 const AuthContext = createContext();
@@ -11,13 +12,15 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, initialState);
 
-  const checkUser = () => {
+ 
+
+  if(!authState.token){
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
-    authDispatch({ type: "CHECK_USER", payload: { user, token } });
-  };
+    authDispatch({type: "CHECK_USER", payload:{user,token}})
+  }
 
-  useEffect(() => checkUser(), []);
+
 
   return (
     <AuthContext.Provider value={{ authState, authDispatch }}>
