@@ -6,7 +6,7 @@ const removeAddressHandler = async (_id, token, authDispatch) => {
         const response = await removeAddressService(_id, token);
         if (response.status === 200) {
             authDispatch({ type: "REMOVE_ADDRESS", payload: response.data.address });
-            toast.info("Address successfully removed");
+            // toast.info("Address successfully removed");
         } else {
             throw new Error();
         }
