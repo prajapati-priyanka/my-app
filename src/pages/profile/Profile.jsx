@@ -7,10 +7,11 @@ import "./Profile.css";
 const Profile = () =>{
   const [activeTab, setActiveTab] = useState("profile")
   const [showAddressModal, setShowAddressModal] = useState(false);
+  const [editAddress, setEditAddress] = useState(null);
 
     return(
         <>
-        {showAddressModal ? <AddressModal showAddressModal={showAddressModal} /> : null}
+        {showAddressModal ? <AddressModal showAddressModal={showAddressModal} setShowAddressModal={setShowAddressModal} editAddress={editAddress} setEditAddress={setEditAddress} /> : null}
         <Nav />
         <main>
           <h3 className="page-title text-center lg-text">
@@ -29,7 +30,7 @@ const Profile = () =>{
                 </button>
 
             </div>
-  {activeTab === "profile" ? <UserDetails /> : activeTab === "address" ? <Address  setShowAddressModal={setShowAddressModal} /> : null}
+  {activeTab === "profile" ? <UserDetails /> : activeTab === "address" ? <Address  setShowAddressModal={setShowAddressModal} setEditAddress={setEditAddress}/> : null}
           </section>
         </main>
         <Footer />
