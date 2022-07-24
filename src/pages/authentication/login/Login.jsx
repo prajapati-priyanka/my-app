@@ -7,6 +7,7 @@ import "./Login.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const { authDispatch } = useAuth();
@@ -29,7 +30,6 @@ const Login = () => {
     setUser(guestData);
   };
 
-
   const loginHandler = async (e) => {
     e.preventDefault();
 
@@ -40,18 +40,19 @@ const Login = () => {
           password: user.password,
         });
 
-   
-
         const { status } = response;
-        const { encodedToken: token } = response.data;
-        const { foundUser } = response.data;
+        const { encodedToken: token, foundUser } = response.data;
 
         if (status === 200) {
           localStorage.setItem("token", JSON.stringify(token));
           localStorage.setItem("user", JSON.stringify(foundUser));
           authDispatch({
             type: "LOGIN",
-            payload: { user: foundUser, token: token },
+            payload: {
+              user: foundUser,
+              token: token,
+              addresses: response.data.foundUser.address,
+            },
           });
           toast("You are Succesfully logged in", { icon: "✔" });
           navigate("/product");
