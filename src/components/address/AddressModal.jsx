@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddressModal.css";
 import {useAuth} from "../../context";
-import {addNewAddressHandler} from "../../utilities";
+import {addNewAddressHandler, updateAddressHandler} from "../../utilities";
 import { useNavigate } from "react-router-dom";
 
-const AddressModal = ({ showAddressModal, setShowAddressModal }) => {
+const AddressModal = ({ showAddressModal, setShowAddressModal, editAddress, setEditAddress }) => {
   const [address, setAddress] = useState({
     name: "",
     street: "",
@@ -37,16 +37,39 @@ const AddressModal = ({ showAddressModal, setShowAddressModal }) => {
     setAddress({ ...address, [name]: value });
 };
 
+const checkInputs = () => {
+  return address.name && address.street && address.city && address.state && address.country && address.zipCode && address.mobile;
+}
+
+
 const callAddNewAddressHandler = () => {
-  if (token) {
-      addNewAddressHandler(address, authDispatch, token);
-      setShowAddressModal(false);
+  if (checkInputs()) {
+      if (token) {
+          if (editAddress) {
+              updateAddressHandler(address, token, authDispatch);
+              setEditAddress(null);
+          }
+          else {
+              addNewAddressHandler(address, authDispatch, token);
+          }
+          setShowAddressModal(false);
+      }
+      else {
+          navigate("/login");
+          // toast.warning("You're not logged in");
+      }
   }
   else {
-      navigate("/login");
-      // toast.warning("You're not logged in");
+      // toast.warning("All the fields need to be entered")
   }
 }
+const checkEditAddress = ()=>{
+  if(editAddress){
+    setAddress(editAddress)
+  }
+}
+
+useEffect(()=> checkEditAddress(), []);
 
   return (
     <>
@@ -68,7 +91,7 @@ const callAddNewAddressHandler = () => {
                 <input
                   type="text"
                   placeholder="Enter house no, street or colony"
-                  name="content"
+                  name="street"
                   value={address.street}
                   onChange={changeHandler}
                   required
