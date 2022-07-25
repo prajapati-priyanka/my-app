@@ -21,7 +21,7 @@ const Address = ({ setShowAddressModal, setEditAddress }) => {
     setShowAddressModal(true);
 }
 
-  useEffect(() => getAddressesHandler(token, authDispatch), []);
+  useEffect(() => getAddressesHandler(token, authDispatch), [token,authDispatch]);
 
 
   return (
