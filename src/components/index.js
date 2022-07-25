@@ -9,4 +9,5 @@ export{WishlistCard} from "./wishlist-card/WishlistCard";
 export {CartBill} from "./cart-bill/CartBill";
 export {UserDetails} from "./user-details/UserDetails";
 export {Address} from "./address/Address";
-export {AddressModal} from "./address/AddressModal"
+export {AddressModal} from "./address/AddressModal";
+export {Logout} from "./logout/Logout"

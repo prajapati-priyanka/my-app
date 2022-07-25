@@ -1,0 +1,23 @@
+.logout-page {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1.6rem;
+}
+
+.logout-page .page-heading {
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.logout-btn {
+  background-color: var(--red);
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.logout-btn:hover {
+  opacity: 0.7;
+}
