@@ -137,13 +137,13 @@ useEffect(()=> checkEditAddress(), []);
                   required
                 />
                 <div className="form-action-btns">
-                  <button className="btn-solid-primary action-btn save-btn" onClick={callAddNewAddressHandler}>
+                  <button className="btn btn-primary action-btn save-btn" onClick={callAddNewAddressHandler}>
                     Save
                   </button>
-                  <button className="outline-btn-primary action-btn dummy-btn" onClick={()=> setAddress(dummyAddress)}>
+                  <button className="btn btn-outline-primary action-btn dummy-btn" onClick={()=> setAddress(dummyAddress)}>
                     Dummy Address
                   </button>
-                  <button className="outline-btn-primary action-btn cancel-btn" onClick={()=>setShowAddressModal(false)}>
+                  <button className="btn btn-outline-primary action-btn cancel-btn" onClick={()=>setShowAddressModal(false)}>
                     Cancel
                   </button>
                 </div>

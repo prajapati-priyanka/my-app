@@ -18,6 +18,7 @@
 
 .address-form{
  width: 80%;
+ margin: 0 auto;
 }
 
 .address-form form {
@@ -27,6 +28,21 @@
 .address-form input {
   width: 100%;
   padding: 8px 10px;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
+  border: 1px solid var(--lynx-gray-color)
+}
+
+.address-form input:hover{
   border: 1px solid var(--secondary-color)
+}
+.address-form input:focus{
+  border: 1px solid var(--secondary-color);
+  outline: 1px solid var(--secondary-color);
+}
+
+.form-action-btns .dummy-btn{
+  margin-left: 0.8rem;
+}
+.form-action-btns .cancel-btn{
+  margin-left: 0.8rem;
 }
