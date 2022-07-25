@@ -4,8 +4,6 @@ import {
   Footer,
   AddressModal,
   UserDetails,
-  Address,
-  Logout,
 } from "../../components";
 import "./Profile.css";
 import {useLocation, useNavigate, Outlet} from "react-router-dom"
