@@ -23,7 +23,7 @@ const AddressModal = ({ showAddressModal, setShowAddressModal, editAddress, setE
   const navigate = useNavigate()
 
   const dummyAddress = {
-    name: "Guest User",
+    name: "Adarsh Balika",
     street: "Flat No. 1D, MA Road, Rajendranagar",
     city: "Indore",
     state: "Madhya Pradesh",

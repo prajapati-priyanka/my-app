@@ -64,7 +64,7 @@ export function makeServer({ environment = "development" } = {}) {
           address: [
             {
               _id: uuid(),
-              name: "Guest User",
+              name: "Adarsh Balika",
               street: "Flat No. 1D, MA Road, Rajendranagar",
               city: "Indore",
               state: "Madhya Pradesh",
