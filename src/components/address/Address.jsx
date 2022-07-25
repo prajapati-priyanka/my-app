@@ -29,16 +29,16 @@ const Address = ({ setShowAddressModal, setEditAddress }) => {
     {addresses ? (  <div className="address-container">
       {addresses.map((item) => (
         <div className="address" key={item._id}>
-          <h3>{item.name}</h3>
-          <p>{item.street}</p>
-          <p>
+          <h4 className="lg-text">{item.name}</h4>
+          <p className="user-details">{item.street}</p>
+          <p className="user-details">
             {item.city},{item.state},{item.zipCode}{" "}
           </p>
-          <p>{item.country}</p>
-          <p>Mobile: {item.mobile}</p>
+          <p className="user-details">{item.country}</p>
+          <p className="user-details">Mobile: {item.mobile}</p>
           <div className="address-action-btns">
             <button
-              className="btn btn-solid-primary btn-edit"
+              className="btn btn-primary btn-edit "
               onClick={() => updateAddress(item)}
             >
               Edit
