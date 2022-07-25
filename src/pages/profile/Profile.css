@@ -21,6 +21,11 @@
     border-radius: 0;
 }
 
+.tab-active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
 
 @media screen and (max-width: 920px){
     .profile-page {
