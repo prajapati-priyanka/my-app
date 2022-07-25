@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Nav, Footer, AddressModal, UserDetails, Address } from "../../components";
+import { Nav, Footer, AddressModal, UserDetails, Address, Logout } from "../../components";
 import "./Profile.css";
 
 
@@ -25,12 +25,12 @@ const Profile = () =>{
                 <button className="tab lg-text" onClick={()=>setActiveTab("address")}>
                     My Address
                 </button>
-                <button className="tab lg-text">
+                <button className="tab lg-text" onClick={()=>setActiveTab("logout")} >
                     Settings
                 </button>
 
             </div>
-  {activeTab === "profile" ? <UserDetails /> : activeTab === "address" ? <Address  setShowAddressModal={setShowAddressModal} setEditAddress={setEditAddress}/> : null}
+  {activeTab === "profile" ? <UserDetails /> : activeTab === "address" ? <Address  setShowAddressModal={setShowAddressModal} setEditAddress={setEditAddress}/> : <Logout />}
           </section>
         </main>
         <Footer />
