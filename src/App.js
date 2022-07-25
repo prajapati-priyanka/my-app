@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      /* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="product" element={<Product />} />
         <Route path="login" element={<Login />} />
@@ -23,13 +23,17 @@ function App() {
           path="/wishlist"
           element={<RequiresAuth children={<Wishlist />}></RequiresAuth>}
         />
+        <Route
+          path="/profile"
+          element={<RequiresAuth children={<Profile />}></RequiresAuth>}
+        />
       </Routes>
       <Toaster
         position="bottom-right"
         toastOptions={{ className: "showToast", duration: 3000 }}
-      /> */}
+      /> */
 
-      <Profile />
+ 
     </div>
   );
 }
