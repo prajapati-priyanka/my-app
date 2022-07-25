@@ -42,7 +42,8 @@ const checkInputs = () => {
 }
 
 
-const callAddNewAddressHandler = () => {
+const callAddNewAddressHandler = (e) => {
+  e.preventDefault();
   if (checkInputs()) {
       if (token) {
           if (editAddress) {
@@ -69,6 +70,11 @@ const checkEditAddress = ()=>{
   }
 }
 
+const callToSetDummyAddress = (e)=>{
+  e.preventDefault();
+  setAddress(dummyAddress)
+}
+
 useEffect(()=> checkEditAddress(), []);
 
   return (
@@ -79,7 +85,7 @@ useEffect(()=> checkEditAddress(), []);
             <div className="address-form">
               <h3 className="form-heading text-center">Add New Address</h3>
 
-              <form>
+              <form  onSubmit={callAddNewAddressHandler}>
                 <input
                   type="text"
                   placeholder="Enter your name.."
@@ -137,12 +143,12 @@ useEffect(()=> checkEditAddress(), []);
                   required
                 />
                 <div className="form-action-btns">
-                  <button className="btn btn-primary action-btn save-btn" onClick={callAddNewAddressHandler}>
+                  <button type="submit" className="btn btn-primary action-btn save-btn">
                     Save
                   </button>
-                  <button className="btn btn-outline-primary action-btn dummy-btn" onClick={()=> setAddress(dummyAddress)}>
+                   <button className="btn btn-outline-primary action-btn dummy-btn" onClick={callToSetDummyAddress}>
                     Dummy Address
-                  </button>
+                  </button> 
                   <button className="btn btn-outline-primary action-btn cancel-btn" onClick={()=>setShowAddressModal(false)}>
                     Cancel
                   </button>
