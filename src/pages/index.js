@@ -5,3 +5,4 @@ export {Cart} from "./cart/Cart";
 export {Login} from "./authentication/login/Login";
 export {SignUp} from "./authentication/signup/SignUp";
 export {SignOut} from "./authentication/signout/SignOut";
+export {Profile} from "./profile/Profile";

@@ -1,0 +1,24 @@
+.user-page {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 1.6rem;
+    
+}
+
+.user-details .detail {
+    padding: 0.5rem;
+    text-decoration: underline;
+    margin-bottom: 1.6rem;
+}
+
+.user-page .user-info {
+    display: flex;
+    padding: 4px 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap:2rem;
+
+}
+

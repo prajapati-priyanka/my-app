@@ -50,13 +50,13 @@ const Filter = () => {
               filterDispatch({ type: "PRICE_SLIDER", payload: e.target.value })
             }
           />
-          <dataList id="marks" className="datalist-options">
+          <datalist id="marks" className="datalist-options">
             <option value="300" label="300"></option>
             <option value="1300" label="1300"></option>
             <option value="2300" label="2300"></option>
             <option value="4300" label="4300"></option>
             <option value="5300" label="5300"></option>
-          </dataList>
+          </datalist>
         </div>
       </div>
 

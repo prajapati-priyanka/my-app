@@ -1,0 +1,48 @@
+.modal-background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.address-modal {
+  width: 50%;
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.address-form{
+ width: 80%;
+ margin: 0 auto;
+}
+
+.address-form form {
+  margin: 1rem 0;
+}
+
+.address-form input {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 0.8rem 0;
+  border: 1px solid var(--lynx-gray-color)
+}
+
+.address-form input:hover{
+  border: 1px solid var(--secondary-color)
+}
+.address-form input:focus{
+  border: 1px solid var(--secondary-color);
+  outline: 1px solid var(--secondary-color);
+}
+
+.form-action-btns .dummy-btn{
+  margin-left: 0.8rem;
+}
+.form-action-btns .cancel-btn{
+  margin-left: 0.8rem;
+}

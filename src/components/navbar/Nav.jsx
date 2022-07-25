@@ -3,24 +3,20 @@ import "./Nav.css";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
+import { FaUser, FaRegUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart, useWishList } from "../../context";
 
 const Nav = () => {
   const { wishListState } = useWishList();
   const { cartState, getCartItemCount } = useCart();
-  const { authDispatch } = useAuth();
+  const { authState } = useAuth();
   const navigate = useNavigate();
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
 
-  const logOutHandler = () => {
-   
-    navigate("/login");
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    authDispatch({ type: "LOGOUT" });
-  };
+  const token = authState.token || localStorage.getItem("token")
+
 
   return (
     <header className="header">
@@ -45,22 +41,21 @@ const Nav = () => {
       <div className="header-links">
         <ul>
           <li>
-            {localStorage.getItem("token") ? (
+            {token ? (
               <button
-                className="btn btn-primary md-text"
-                onClick={logOutHandler}
+                className="btn user-logout-btn"
+                onClick={()=>navigate("/profile")}
               >
-                LOGOUT
+                <FaUser />
               </button>
             ) : (
-              <Link to="/login">
-                <button className="btn btn-primary md-text">LOGIN</button>
-              </Link>
+                <button className="btn user-login-btn" title="Login" onClick={()=> navigate("/login")}><FaRegUser /></button>
+          
             )}
           </li>
           <li>
             <Link to="/wishlist">
-              <div className="icon badge">
+              <div className="icon badge" title="wishlist">
                 <MdOutlineFavoriteBorder />
                 {localStorage.getItem("token") ? (
                   wishListItem.length === 0 ? (
@@ -76,7 +71,7 @@ const Nav = () => {
           </li>
           <li>
             <Link to="/cart">
-              <div className="icon badge">
+              <div className="icon badge" title="cart">
                 <BsCart />
                 {localStorage.getItem("token") ? (
                   cartItem.length === 0 ? (

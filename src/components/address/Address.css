@@ -1,0 +1,47 @@
+.address-container {
+    padding: 0 1rem 0.1rem 1rem;
+}
+
+.address {
+    margin-top: 1.5rem;
+}
+
+.address .user-details {
+    font-size: 1.4rem;
+    padding: 0.3rem 0;
+}
+
+.address-action-btns{
+    margin: 0.8rem 0;
+}
+
+.address-action-btns button {
+    margin: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.address-action-btns .btn-edit {
+    padding: 0.5rem 1rem;
+}
+
+.address-action-btns .btn-remove{
+    margin-left: 0.5rem;
+}
+
+.new-address-btn {
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0.4rem;
+    margin: 2rem 0;
+    font-weight: var(--semibold-font);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+
+.new-address-btn:hover {
+    background-color: var(--white-color);
+}

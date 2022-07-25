@@ -38,6 +38,18 @@
   border-left: none;
 }
 
+.header-links .btn {
+  color: var(--link-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 2.5rem;
+}
+
+.header-links .btn:hover{
+  color: var(--primary-color);
+}
+
 @media only screen and (max-width: 900px) {
   .search-container {
     position: absolute;
