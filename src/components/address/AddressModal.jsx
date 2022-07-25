@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./AddressModal.css";
 import {useAuth} from "../../context";
 import {addNewAddressHandler, updateAddressHandler} from "../../utilities";
@@ -64,18 +64,24 @@ const callAddNewAddressHandler = (e) => {
       // toast.warning("All the fields need to be entered")
   }
 }
-const checkEditAddress = ()=>{
+// const checkEditAddress = ()=>{
+//   if(editAddress){
+//     setAddress(editAddress)
+//   }
+// }
+
+const checkEditAddress = useCallback(()=>{
   if(editAddress){
     setAddress(editAddress)
   }
-}
+},[editAddress])
 
 const callToSetDummyAddress = (e)=>{
   e.preventDefault();
   setAddress(dummyAddress)
 }
 
-useEffect(()=> checkEditAddress(), []);
+useEffect(()=> checkEditAddress(), [checkEditAddress]);
 
   return (
     <>
