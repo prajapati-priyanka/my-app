@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { cartReducer } from "../reducer/cart-reducer";
 import { useAuth } from "./auth-context";
+import {toast} from "react-toastify"
 
 const cartInitialState = {
   cartItem: [],
@@ -16,12 +17,6 @@ const CartProvider = ({ children }) => {
 
   const { authState } = useAuth();
   const token = authState.token || localStorage.getItem("token");
-
-  // const config = {
-  //   headers: {
-  //     authorization: token,
-  //   },
-  // };
 
   useEffect(() => {
     (async () => {
@@ -77,6 +72,7 @@ const CartProvider = ({ children }) => {
           type: "ADD_TO_CART",
           payload: response.data.cart,
         });
+     
       } else {
         setIsDisabled(true);
         const response = await axios.post(
@@ -90,6 +86,7 @@ const CartProvider = ({ children }) => {
         );
         if (response.status === 201) {
           cartDispatch({ type: "ADD_TO_CART", payload: response.data.cart });
+          toast.success("Item added to cart")
         } else {
           throw new Error("Can't process the request");
         }
@@ -112,6 +109,7 @@ const CartProvider = ({ children }) => {
       );
       if (response.status === 200) {
         cartDispatch({ type: "REMOVE_FROM_CART", payload: response.data.cart });
+        toast.delete("Item removed from cart")
       } else {
         throw new Error("Can't process the request");
       }

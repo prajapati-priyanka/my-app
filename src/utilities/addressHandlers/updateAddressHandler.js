@@ -1,4 +1,4 @@
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { updateAddressService } from "../../services";
 
 const updateAddressHandler = async (address, token, authDispatch) => {
@@ -6,7 +6,7 @@ const updateAddressHandler = async (address, token, authDispatch) => {
         const response = await updateAddressService(address, token);
         if (response.status === 200) {
             authDispatch({ type: "UPDATE_ADDRESS", payload: response.data.address });
-            // toast.success("Address Successfully Updated");
+            toast.success("Address Successfully Updated");
         } else {
             throw new Error();
         }

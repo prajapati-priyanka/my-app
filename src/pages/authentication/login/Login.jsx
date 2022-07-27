@@ -1,12 +1,11 @@
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Nav } from "../../../components";
 import { useAuth } from "../../../context";
 import axios from "axios";
 import "./Login.css";
 import { useState } from "react";
-import toast from "react-hot-toast";
-
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,6 +14,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const location = useLocation();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -54,8 +54,9 @@ const Login = () => {
               addresses: response.data.foundUser.address,
             },
           });
-          toast("You are Succesfully logged in", { icon: "✔" });
-          navigate("/product");
+          navigate(location?.state?.from?.pathname || -1, { replace: true });
+          toast.success("You are Succesfully Logged In")
+        
         } else {
           throw new Error("Can't process the request, Try Again later");
         }
@@ -63,7 +64,7 @@ const Login = () => {
         console.error(err);
       }
     } else {
-      alert("Both email and password fields must be filled!!");
+      toast.warning("Both email and password fields must be filled!!");
     }
   };
 

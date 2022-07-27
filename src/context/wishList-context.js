@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { wishListReducer } from "../reducer/wishList-reducer";
 import { useAuth } from "./auth-context";
+import {toast} from "react-toastify";
 
 const wishListInitialState = {
   wishListItem: [],
@@ -61,6 +62,8 @@ const WishListProvider = ({ children }) => {
           type: "ADD_PRODUCT_TO_WISHLIST",
           payload: response.data.wishlist,
         });
+
+        toast.success("Item is added to wishlist")
       } else {
         throw new Error("Couldn't complete the request");
       }
@@ -87,6 +90,7 @@ const WishListProvider = ({ children }) => {
           type: "DELETE_PRODUCT_FROM_WISHLIST",
           payload: response.data.wishlist,
         });
+        toast.error("Item removed from wishlist")
       } else {
         throw new Error("Couldn't complete the request");
       }
