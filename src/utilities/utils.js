@@ -56,10 +56,20 @@ const filterRating = (productList, rating) => {
   return productList;
 };
 
+const filterSearch =( productList, filterState)=>{
+  if(filterState.searchByValue){
+    return productList.filter(item=> item.title.toLowerCase().includes(filterState.searchByValue.toLowerCase()))
+  }
+    
+  return productList;
+
+}
+
 export {
   sortPrice,
   filteredProduct,
   filterPrice,
   filterCategory,
   filterRating,
+  filterSearch
 };

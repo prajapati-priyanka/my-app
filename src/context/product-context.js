@@ -7,6 +7,7 @@ import {
   filterPrice,
   filterCategory,
   filterRating,
+  filterSearch
 } from "../utilities/utils";
 
 const ProductContext = createContext();
@@ -18,6 +19,7 @@ const initialState = {
   priceValue: 0,
   sortByCategory: [],
   sortByRating: null,
+  searchByValue: ""
 };
 
 const ProductProvider = ({ children }) => {
@@ -38,8 +40,9 @@ const ProductProvider = ({ children }) => {
   const filteredData = filteredProduct(sortedData, filterState);
   const filteredPriceData = filterPrice(filteredData, filterState.priceValue);
   const filteredCategoryData = filterCategory(filteredPriceData, filterState);
+  const filteredSearchedData = filterSearch(filteredCategoryData, filterState)
   const finalfilteredList = filterRating(
-    filteredCategoryData,
+    filteredSearchedData,
     filterState.sortByRating
   );
 
