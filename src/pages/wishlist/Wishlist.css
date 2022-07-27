@@ -8,18 +8,21 @@
     margin: 3rem auto;
     display: grid;
     grid-gap:1rem;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    min-height: 51vh;
 
+  }
+
+  .wishlist-container .no-product-text{
+    width: 80vw;
+    margin: 0 auto;
   }
   .card-floating-icon {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--red);
   }
-  
-  .no-product-text{
-    height: 37.5rem;
-  }
+
   .go-to-product{
     color: var(--primary-color);
   }
@@ -28,12 +31,11 @@
   }
 
   @media only screen and (max-width: 540px) {
-    .wishlist-container {
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    }
   
-    .vertical-card {
-      width: 90%;
+    .wishlist-container{
+      width: 98%;
+      margin: 1rem auto;
+      padding: 0.8rem;
     }
   }
   
@@ -43,9 +45,16 @@
     }
   }
   
-  @media only screen and (max-width: 415px) {
-    .vertical-card {
-      width: 100%;
+  @media only screen and (max-width: 452px) {
+    .wishlist-container{
+    
+
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+      margin: 1rem;
+     }  
+    
+    .wishlist-card {
+      width: 90%;
     }
   }
 

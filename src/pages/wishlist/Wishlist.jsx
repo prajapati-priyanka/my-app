@@ -15,7 +15,7 @@ const Wishlist = () => {
         <h3 className="page-title text-center lg-text">
           My Wishlist({wishListItem.length})
         </h3>
-        <div className="text-center" >
+        <div className="wishlist-container" >
           {wishListItem.length === 0 ? (
             <h2 className="no-product-text text-center">
               No item wishlisted.<Link to="/product" className="go-to-product">Let's Shop.</Link>
