@@ -1,0 +1,19 @@
+.not-found {
+  width: 80rem;
+  margin: 2rem auto;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.not-found .link-to-home {
+  margin-top: 2rem;
+}
+.not-found .link-to-home a {
+  color: var(--primary-color);
+  margin: 0 0.1rem;
+ 
+}
+
+.not-found .link-to-home a:hover {
+  text-decoration: underline;
+}
