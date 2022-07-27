@@ -5,7 +5,8 @@ import { BsCart } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 import { FaUser, FaRegUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCart, useWishList } from "../../context";
+import { useAuth, useCart, useProduct, useWishList} from "../../context";
+
 
 const Nav = () => {
   const { wishListState } = useWishList();
@@ -14,9 +15,14 @@ const Nav = () => {
   const navigate = useNavigate();
   const { wishListItem } = wishListState;
   const { cartItem } = cartState;
+  const {filterState, filterDispatch} = useProduct();
+
 
   const token = authState.token || localStorage.getItem("token")
 
+  const searchHandler = (e)=>{
+    filterDispatch({type: "SEARCH_PRODUCT", payload: e.target.value})
+  }
 
   return (
     <header className="header">
@@ -32,6 +38,8 @@ const Nav = () => {
           type="search"
           placeholder="Search Product"
           className="input-search"
+          value={filterState.searcByValue}
+          onChange={searchHandler}
         />
         <button type="submit" className="btn-search">
           <BsSearch />

@@ -1,6 +1,7 @@
-import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut, Profile } from "./pages";
+import { Home, Product, Wishlist, Cart, Login, SignUp, SignOut, Profile, NotFound } from "./pages";
 import { Routes, Route } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { RequiresAuth } from "./router/RequiresAuth";
 import MockmanEs from "mockman-js";
 import "./App.css";
@@ -59,13 +60,23 @@ function App() {
             }
           />
           </Route>
+          <Route path="*" element={<NotFound />} />
       </Routes>
     
         
-      <Toaster
-        position="bottom-right"
-        toastOptions={{ className: "showToast", duration: 3000 }}
-      /> */
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        theme={"colored"}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className="toaster-container"
+      />
 
  
     </div>

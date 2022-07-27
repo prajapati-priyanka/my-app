@@ -22,7 +22,20 @@
     padding: 0.8rem;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
    }
+
+   @media screen and (max-width: 685px) {
+    .product-display-container {
+      grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+     }
+  }
+   @media screen and (max-width: 443px) {
+    .product-display-container {
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+     }
+
+  }
+
   
   

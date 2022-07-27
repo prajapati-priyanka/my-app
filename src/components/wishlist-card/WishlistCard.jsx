@@ -11,7 +11,7 @@ const WishlistCard = ({ products }) => {
   const { title, subtitle, priceBeforeDiscount, priceAfterDiscount, discount, image, rating, isSoldOut } = products;
 
   return (
-    <div className="card ecommerce-card card-with-badge card-with-dismiss card-shadow">
+    <div className="card ecommerce-card card-with-badge card-with-dismiss card-shadow wishlist-card">
       <figure className="card-header">
         <img src={image} alt={subtitle} />
       </figure>

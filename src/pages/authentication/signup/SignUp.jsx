@@ -4,10 +4,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import "../login/Login.css";
 import "./SignUp.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../../context";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
@@ -23,6 +23,7 @@ const SignUp = () => {
 
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onChangeHandler = (e) => {
     e.preventDefault();
@@ -58,8 +59,8 @@ const SignUp = () => {
             type: "SIGNUP",
             payload: { user: createdUser, token: token },
           });
-          toast("Your data has been saved!", { icon: "✔" });
-          navigate("/login");
+          navigate(location?.state?.from?.pathname || -1, { replace: true });
+          toast.success("You account is successfully created")
         } else if (response.status === 422) {
           throw new Error("This User Already Exist!!");
         } else {
@@ -69,7 +70,7 @@ const SignUp = () => {
         console.error(err);
       }
     } else {
-      alert("All input fields must be filled!!");
+      toast.warning("All input fields must be filled!!");
     }
   };
 

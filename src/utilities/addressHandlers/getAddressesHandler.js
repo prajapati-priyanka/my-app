@@ -1,4 +1,4 @@
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { getAddressService } from "../../services";
 
 const getAddressesHandler = async (token, authDispatch) => {
@@ -7,7 +7,7 @@ const getAddressesHandler = async (token, authDispatch) => {
         authDispatch({ type: "GET_ADDRESS", payload: response.data.address })
     }
     catch (error) {
-        // toast.error(error.response.data.errors[0]);
+        toast.error(error.response.data.errors[0]);
     }
 }
 

@@ -41,6 +41,12 @@ const sortReducer = (state, action) => {
         sortByRating: action.payload,
       };
 
+      case "SEARCH_PRODUCT":{
+        return{
+          ...state, searchByValue: action.payload
+        }
+      }
+
     case "CLEAR_ALL_FILTERS":
       return {
         ...state,
