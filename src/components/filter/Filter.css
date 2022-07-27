@@ -58,3 +58,9 @@
     justify-content: space-between;
      font-size: 1rem
   }
+
+  @media screen and (max-width: 685px) {
+    .product-filter-container {
+      display: none
+    }
+  }
